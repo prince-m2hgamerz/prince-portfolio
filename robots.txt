@@ -3,6 +3,7 @@
 
 User-agent: *
 Allow: /
+Disallow: /og-template.html
 
 # Explicit allow for major AI/answer engines so they can cite this content.
 User-agent: GPTBot

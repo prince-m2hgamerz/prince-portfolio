@@ -9,6 +9,12 @@
     <meta name="keywords" content="Prince Kumar, M2H Web Solution, full-stack developer, React, Next.js, Node.js, freelance developer India, web apps, APIs, AI tools" />
     <link rel="canonical" href="https://prince.m2hio.in/" />
 
+    <!--
+      Analytics — replace G-XXXXXXXXXX with your real GA4 measurement ID.
+      Leave the value blank or remove the meta tag entirely to disable tracking.
+    -->
+    <meta name="ga-id" content="" />
+
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
     <meta property="og:title" content="Prince Kumar — Founder, M2H Web Solution" />
@@ -17,8 +23,11 @@
     <meta property="og:site_name" content="Prince Kumar · M2H Web Solution" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://prince.m2hio.in/og.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:secure_url" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="Prince Kumar — Founder of M2H Web Solution. Self-taught full-stack engineer." />
     <meta property="profile:first_name" content="Prince" />
     <meta property="profile:last_name" content="Kumar" />
     <meta property="profile:username" content="m2hgamerz" />
@@ -33,6 +42,7 @@
     <meta name="twitter:title" content="Prince Kumar — Founder, M2H Web Solution" />
     <meta name="twitter:description" content="Self-taught. Still learning. Shipping anyway. Full-stack web apps, APIs, and AI tools — designed and shipped end-to-end." />
     <meta name="twitter:image" content="https://prince.m2hio.in/og.png" />
+    <meta name="twitter:image:alt" content="Prince Kumar — Founder of M2H Web Solution. Self-taught full-stack engineer." />
 
     <!-- Inline SVG favicon — italic 'p' on a violet→amber gradient -->
     <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a78bfa'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230f0c29'/><circle cx='32' cy='32' r='22' fill='url(%23g)' opacity='0.25'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
@@ -43,6 +53,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap"
       rel="stylesheet"
@@ -142,7 +154,15 @@
             "mainEntity": { "@id": "https://prince.m2hio.in/#person" },
             "datePublished": "2025-01-15T00:00:00+05:30",
             "dateModified": "2026-05-28T00:00:00+05:30",
-            "inLanguage": "en"
+            "inLanguage": "en",
+            "breadcrumb": { "@id": "https://prince.m2hio.in/#breadcrumb" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://prince.m2hio.in/#breadcrumb",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://prince.m2hio.in/" }
+            ]
           }
         ]
       }
@@ -217,6 +237,7 @@
     <script src="/src/lib/FadingVideo.js" type="text/babel"></script>
     <script src="/src/lib/BlurText.js" type="text/babel"></script>
     <script src="/src/lib/hooks.js" type="text/babel"></script>
+    <script src="/src/lib/analytics.js"></script>
 
     <script src="/src/components/SectionHeader.js" type="text/babel"></script>
     <script src="/src/components/Navbar.js" type="text/babel"></script>

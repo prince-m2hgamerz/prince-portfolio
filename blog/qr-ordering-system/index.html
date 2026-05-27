@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="A practical writeup of the QR ordering system I built — Node.js, MongoDB, and WebSockets driving real-time orders for a live restaurant in production." />
+    <meta name="author" content="Prince Kumar" />
+    <meta name="keywords" content="QR ordering system, Node.js, MongoDB, WebSockets, restaurant tech, real-time orders, full-stack case study" />
+    <link rel="canonical" href="https://prince.m2hio.in/blog/qr-ordering-system/" />
+    <meta name="ga-id" content="" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Building a QR Ordering System with Node.js, MongoDB, and WebSockets" />
+    <meta property="og:description" content="How I built a real-time restaurant ordering platform serving live customers. Lessons from production." />
+    <meta property="og:url" content="https://prince.m2hio.in/blog/qr-ordering-system/" />
+    <meta property="og:image" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:secure_url" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="Building a QR Ordering System — case study by Prince Kumar." />
+    <meta property="article:published_time" content="2026-04-12T00:00:00+05:30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@m2hgamerz" />
+    <meta name="twitter:title" content="Building a QR Ordering System" />
+    <meta name="twitter:image" content="https://prince.m2hio.in/og.png" />
+    <meta name="twitter:image:alt" content="Building a QR Ordering System — case study by Prince Kumar." />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f0c29'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
+
+    <title>Building a QR Ordering System with Node.js, MongoDB, and WebSockets — Prince Kumar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: {
+        fontFamily: { heading: ["'Instrument Serif'", "serif"], body: ["'Barlow'", "sans-serif"] },
+        borderRadius: { DEFAULT: "9999px" },
+      } } };
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://prince.m2hio.in/blog/qr-ordering-system/#post",
+      "headline": "Building a QR Ordering System with Node.js, MongoDB, and WebSockets",
+      "description": "How I built a real-time restaurant ordering platform serving live customers — with QR-code menus, WebSocket order tracking, and an admin dashboard.",
+      "datePublished": "2026-04-12T00:00:00+05:30",
+      "dateModified": "2026-05-28T00:00:00+05:30",
+      "author": { "@type": "Person", "name": "Prince Kumar", "url": "https://prince.m2hio.in/" },
+      "publisher": { "@type": "Person", "name": "Prince Kumar", "url": "https://prince.m2hio.in/" },
+      "image": "https://prince.m2hio.in/og.png",
+      "mainEntityOfPage": "https://prince.m2hio.in/blog/qr-ordering-system/",
+      "keywords": "Node.js, MongoDB, WebSockets, Case Study",
+      "wordCount": 1700,
+      "inLanguage": "en"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://prince.m2hio.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://prince.m2hio.in/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "QR Ordering System" }
+      ]
+    }
+    </script>
+
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>window.Motion = window.Motion || window.FramerMotion;</script>
+  </head>
+  <body class="bg-black text-white font-body">
+    <a href="#main" class="sr-only focus:not-sr-only fixed top-2 left-2 z-[100] liquid-glass rounded-full px-4 py-2 text-sm font-medium text-white" style="background: rgba(0,0,0,0.85);">Skip to main content</a>
+
+    <div id="root"></div>
+
+    <!-- Static post content. Visible to crawlers AND non-JS visitors.
+         React reads this, renders the chrome, then hides the original. -->
+    <article id="post-body" data-meta='{"slug":"qr-ordering-system","title":"Building a QR Ordering System with Node.js, MongoDB, and WebSockets","description":"How I built a real-time restaurant ordering platform serving live customers — with QR-code menus, WebSocket order tracking, and an admin dashboard.","published":"2026-04-12","modified":"2026-05-28","readMin":9,"wordCount":1700,"tags":["Node.js","MongoDB","WebSockets","Case Study"]}' style="padding:80px 24px;max-width:760px;margin:0 auto;font-family:Barlow,system-ui,sans-serif;color:#fff;background:#000;line-height:1.7;">
+      <p>A few months ago a restaurant client asked me to fix a problem most small restaurants have: paper menus get sticky, prices change on a whiteboard, and waitstaff spend half their shift relaying orders to the kitchen. They wanted QR-code menus, a way for customers to order from their own phones, and a live dashboard for the kitchen.</p>
+
+      <p>The result is now in production at <a href="https://farresidency.m2hio.in/" target="_blank" rel="noreferrer">farresidency.m2hio.in</a> — serving real customers daily. This post walks through the architecture, the parts I got right, and a few things I'd do differently next time.</p>
+
+      <h2>The constraints</h2>
+      <p>The brief came with hard constraints, which is actually great:</p>
+      <ul>
+        <li><strong>No customer app install.</strong> Whatever loads after a QR scan has to be a web page that's instantly usable.</li>
+        <li><strong>Real-time order updates.</strong> When the kitchen marks an order ready, the customer's phone should reflect it within a second.</li>
+        <li><strong>Single admin dashboard.</strong> Menu management, order monitoring, pricing — all in one place.</li>
+        <li><strong>Cheap to run.</strong> A small restaurant can't justify a $200/month infra bill.</li>
+      </ul>
+
+      <h2>The stack</h2>
+      <p>I picked boring, well-understood tech because production debugging matters more than novelty:</p>
+      <ul>
+        <li><strong>Node.js + Express</strong> for the API server. Familiar, fast enough, easy to deploy.</li>
+        <li><strong>MongoDB Atlas</strong> for menus and orders. Schema flexibility helps when the client wants a new field added live.</li>
+        <li><strong>WebSockets (ws)</strong> for the order-status bus. Pub/sub by table ID.</li>
+        <li><strong>React</strong> for the customer ordering app and the admin dashboard, sharing a small component library.</li>
+        <li><strong>Cloudflare</strong> for DNS, TLS, and caching the static menu images.</li>
+      </ul>
+
+      <h2>How orders flow</h2>
+      <p>The core flow is simple, which is why it works:</p>
+      <ol>
+        <li>Customer scans the QR code at table 7. The URL contains <code>?table=7</code>.</li>
+        <li>The React app fetches the menu from <code>/api/menu</code>, cached for 60 seconds at the edge.</li>
+        <li>Customer adds items, hits Place Order. The app POSTs to <code>/api/orders</code> with the table ID.</li>
+        <li>The server writes the order to MongoDB and broadcasts a JSON message over the admin WebSocket channel.</li>
+        <li>The kitchen dashboard sees the order pop in within ~150ms, prints a ticket, and updates status as cooking progresses.</li>
+        <li>Each status update broadcasts back to the customer's open WebSocket — the table page shows "Preparing → Ready → Served" without a refresh.</li>
+      </ol>
+
+      <h2>The WebSocket layer</h2>
+      <p>The kitchen channel is a single WebSocket connection per admin device. The customer side is per-table — when a customer opens table 7's menu, they subscribe to <code>orders:table:7</code>. Server-side I keep a simple in-memory map.</p>
+
+      <p>No Redis pub/sub. No clustered Node.js. One process, one machine, in-memory state. Yes, that means a restart drops connections — the client reconnects with exponential backoff and the in-flight orders are still in MongoDB. For a small restaurant this is more than enough; the entire ordering volume fits in a single server's memory by orders of magnitude.</p>
+
+      <h2>Things I'd do differently</h2>
+      <h3>Move the menu to ISR-style caching, not in-memory</h3>
+      <p>I cached the menu in process memory for performance, then realized when the client edits a price it doesn't propagate until I restart the server. I fixed this by adding a 60-second TTL with a manual invalidation endpoint, but I'd just put it on Cloudflare KV from day one.</p>
+
+      <h3>Idempotency keys on order creation</h3>
+      <p>On flaky restaurant Wi-Fi, customers sometimes double-tap "Place Order" before the first request returns. I added an idempotency key on the client after the first incident — should have been there from the start.</p>
+
+      <h3>Print formatting deserves its own service</h3>
+      <p>The kitchen ticket printer needed ESC/POS commands, which I crammed into the admin React app. It works but feels ugly. A small Go binary running on a Raspberry Pi as a print server would have been cleaner.</p>
+
+      <h2>Numbers from production</h2>
+      <p>After three months in production:</p>
+      <ul>
+        <li>Average order latency (place to kitchen seeing it): <strong>under 200ms</strong> end-to-end.</li>
+        <li>WebSocket connection success rate: <strong>~99.4%</strong>.</li>
+        <li>Average orders per day: 80–150 depending on weekday.</li>
+        <li>Total infra cost: <strong>under $15/month</strong> (Atlas free tier + a $5 VPS + Cloudflare free).</li>
+        <li>Zero data-loss incidents. Two restart-related disconnect events, both auto-recovered.</li>
+      </ul>
+
+      <h2>Takeaway</h2>
+      <p>The hardest part of small-business software isn't picking the stack. It's shipping something the staff will actually use without complaining for a week. WebSockets felt like overkill until I saw the kitchen running on it live — and now removing that responsiveness feels unimaginable.</p>
+      <p>If you want to see the system in action, it's live at <a href="https://farresidency.m2hio.in/" target="_blank" rel="noreferrer">farresidency.m2hio.in</a>. If you're building something similar and want to talk it through, I'm at <a href="mailto:m2hgamerz.prince@gmail.com">m2hgamerz.prince@gmail.com</a>.</p>
+    </article>
+
+    <script src="/src/data/content.js" type="text/babel"></script>
+    <script src="/src/data/posts.js" type="text/babel"></script>
+    <script src="/src/lib/icons.js" type="text/babel"></script>
+    <script src="/src/lib/hooks.js" type="text/babel"></script>
+    <script src="/src/lib/analytics.js"></script>
+    <script src="/src/components/Navbar.js" type="text/babel"></script>
+    <script src="/src/components/BlogPost.js" type="text/babel"></script>
+    <script src="/src/components/BlogPostApp.js" type="text/babel"></script>
+  </body>
+</html>

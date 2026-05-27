@@ -209,6 +209,41 @@
   }
 
   function Work() {
+    // Inject WebApplication / SoftwareApplication schema for each project,
+    // built from the same content.js array — guaranteed to match visible content.
+    React.useEffect(() => {
+      const id = "work-jsonld";
+      document.getElementById(id)?.remove();
+
+      const all = [C.featuredProject, ...C.projects];
+      const data = {
+        "@context": "https://schema.org",
+        "@graph": all.map((p) => ({
+          "@type": "WebApplication",
+          "@id": `${p.href}#app`,
+          "name": p.title,
+          "url": p.href,
+          "description": p.blurb,
+          "applicationCategory": "WebApplication",
+          "operatingSystem": "Web",
+          "creator": {
+            "@type": "Person",
+            "name": "Prince Kumar",
+            "url": "https://prince.m2hio.in/",
+          },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+          "inLanguage": "en",
+        })),
+      };
+      const s = document.createElement("script");
+      s.type = "application/ld+json";
+      s.id = id;
+      s.text = JSON.stringify(data);
+      document.head.appendChild(s);
+
+      return () => document.getElementById(id)?.remove();
+    }, []);
+
     return (
       <section
         id="work"

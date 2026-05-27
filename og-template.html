@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>OG Image — Prince Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: dark; }
+      body {
+        margin: 0;
+        background: #111;
+        font-family: 'Barlow', system-ui, sans-serif;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      /* The card itself is exactly 1200x630, the OG standard. */
+      .og {
+        width: 1200px;
+        height: 630px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        background:
+          radial-gradient(900px 500px at 80% 110%, rgba(249,115,22,0.30), transparent 60%),
+          radial-gradient(900px 500px at 0% -10%, rgba(167,139,250,0.40), transparent 60%),
+          #0f0c29;
+      }
+
+      .og::before {
+        /* Subtle dotted texture */
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 22px 22px;
+        opacity: 0.5;
+      }
+
+      .inner {
+        position: relative;
+        z-index: 1;
+        padding: 64px 72px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .top { display: flex; align-items: center; gap: 16px; }
+      .logo {
+        width: 64px; height: 64px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.07);
+        backdrop-filter: blur(20px);
+        border: 1.4px solid rgba(255,255,255,0.18);
+        display: flex; align-items: center; justify-content: center;
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-size: 36px;
+        line-height: 1;
+        padding-top: 4px;
+        box-sizing: border-box;
+      }
+      .brand {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-size: 30px;
+        letter-spacing: -0.5px;
+        opacity: 0.75;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 18px 10px 6px;
+        border-radius: 9999px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.12);
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 22px;
+        align-self: flex-start;
+      }
+      .pill .badge {
+        background: #fff;
+        color: #000;
+        border-radius: 9999px;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      h1 {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 110px;
+        line-height: 0.92;
+        letter-spacing: -4px;
+        margin: 0;
+        max-width: 980px;
+      }
+      h1 .dim { color: rgba(255,255,255,0.55); }
+
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+      .footer .name {
+        font-size: 22px;
+        font-weight: 600;
+      }
+      .footer .role {
+        font-size: 16px;
+        opacity: 0.7;
+        margin-top: 4px;
+      }
+      .footer .url {
+        font-family: 'Instrument Serif', serif;
+        font-style: italic;
+        font-size: 28px;
+        opacity: 0.8;
+      }
+
+      /* Helper instructions, hidden in screenshot — see the block below */
+      .instructions {
+        max-width: 1200px;
+        margin-top: 28px;
+        padding: 20px 24px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.10);
+        font-size: 14px;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.85);
+      }
+      .instructions code {
+        background: rgba(255,255,255,0.10);
+        padding: 2px 8px;
+        border-radius: 6px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+        font-size: 13px;
+      }
+      @media print {
+        body { background: transparent; }
+        .instructions { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="og">
+        <div class="inner">
+          <div class="top">
+            <div class="logo">p</div>
+            <div class="brand">Prince Kumar · M2H Web Solution</div>
+          </div>
+
+          <div>
+            <span class="pill">
+              <span class="badge">New</span>
+              Founder &amp; Full-Stack Engineer
+            </span>
+            <h1>
+              Self-taught.<br/>
+              Still learning.<br/>
+              <span class="dim">Shipping anyway.</span>
+            </h1>
+          </div>
+
+          <div class="footer">
+            <div>
+              <div class="name">Prince Kumar</div>
+              <div class="role">Web apps · APIs · AI tools — shipped end-to-end</div>
+            </div>
+            <div class="url">prince.m2hio.in</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="instructions">
+        <strong>How to export this as <code>og.png</code>:</strong><br/>
+        1. Open this file in Chrome at 100% zoom on a 1920×1080+ display.<br/>
+        2. Right-click the dark card above → <code>Inspect</code>.<br/>
+        3. In DevTools, right-click the <code>&lt;div class="og"&gt;</code> element → <code>Capture node screenshot</code>.<br/>
+        4. Chrome saves a 1200×630 PNG. Rename it <code>og.png</code> and drop it in the project root.<br/>
+        5. Redeploy. <code>og.png</code> will now be served at <code>/og.png</code> for all OG/Twitter previews.
+        <br/><br/>
+        Faster alternative: open this file in a headless browser (Puppeteer / Playwright) and screenshot the <code>.og</code> selector. A one-line script if you want to automate it.
+      </div>
+    </div>
+  </body>
+</html>

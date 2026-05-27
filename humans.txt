@@ -1,0 +1,21 @@
+/* TEAM */
+
+Founder, designer, engineer: Prince Kumar
+Site: https://prince.m2hio.in
+Studio: https://m2hio.in
+Email: m2hgamerz.prince@gmail.com
+GitHub: https://github.com/prince-m2hgamerz
+Location: India
+
+/* THANKS */
+
+The internet — for every blog post, RFC, and Stack Overflow answer that
+helped me figure things out without anyone holding my hand.
+
+/* SITE */
+
+Last update: 2026-05-28
+Standards: HTML5, CSS3, JSON-LD, ES2022
+Components: React 18, Tailwind CSS, Framer Motion, Hono.js
+Hosting: Vercel
+Designed and built by Prince Kumar.

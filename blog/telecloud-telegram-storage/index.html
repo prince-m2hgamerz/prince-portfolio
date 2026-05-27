@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="How I built TeleCloud — a serverless file storage platform on the Telegram Bot API. Architecture, tradeoffs, and what I'd change." />
+    <meta name="author" content="Prince Kumar" />
+    <meta name="keywords" content="TeleCloud, Telegram Bot API, serverless storage, free cloud storage, Cloudflare Workers, Node.js" />
+    <link rel="canonical" href="https://prince.m2hio.in/blog/telecloud-telegram-storage/" />
+    <meta name="ga-id" content="" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="TeleCloud: Building Unlimited Cloud Storage on the Telegram API" />
+    <meta property="og:description" content="A serverless file storage platform built entirely on the Telegram Bot API." />
+    <meta property="og:url" content="https://prince.m2hio.in/blog/telecloud-telegram-storage/" />
+    <meta property="og:image" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:secure_url" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="TeleCloud — serverless storage on the Telegram API by Prince Kumar." />
+    <meta property="article:published_time" content="2026-03-18T00:00:00+05:30" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:creator" content="@m2hgamerz" />
+    <meta name="twitter:title" content="TeleCloud: Cloud Storage on the Telegram API" />
+    <meta name="twitter:image" content="https://prince.m2hio.in/og.png" />
+    <meta name="twitter:image:alt" content="TeleCloud — serverless storage on the Telegram API by Prince Kumar." />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f0c29'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
+
+    <title>TeleCloud: Cloud Storage on the Telegram API — Prince Kumar</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { theme: { extend: {
+        fontFamily: { heading: ["'Instrument Serif'", "serif"], body: ["'Barlow'", "sans-serif"] },
+        borderRadius: { DEFAULT: "9999px" },
+      } } };
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "@id": "https://prince.m2hio.in/blog/telecloud-telegram-storage/#post",
+      "headline": "TeleCloud: Building Unlimited Cloud Storage on the Telegram API",
+      "description": "How I built a serverless file storage platform on the Telegram Bot API. Architecture, tradeoffs, and what I would change.",
+      "datePublished": "2026-03-18T00:00:00+05:30",
+      "dateModified": "2026-05-28T00:00:00+05:30",
+      "author": { "@type": "Person", "name": "Prince Kumar", "url": "https://prince.m2hio.in/" },
+      "publisher": { "@type": "Person", "name": "Prince Kumar", "url": "https://prince.m2hio.in/" },
+      "image": "https://prince.m2hio.in/og.png",
+      "mainEntityOfPage": "https://prince.m2hio.in/blog/telecloud-telegram-storage/",
+      "keywords": "Telegram API, serverless storage, Cloudflare Workers",
+      "wordCount": 1300,
+      "inLanguage": "en"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://prince.m2hio.in/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://prince.m2hio.in/blog/" },
+        { "@type": "ListItem", "position": 3, "name": "TeleCloud" }
+      ]
+    }
+    </script>
+
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>window.Motion = window.Motion || window.FramerMotion;</script>
+  </head>
+  <body class="bg-black text-white font-body">
+    <a href="#main" class="sr-only focus:not-sr-only fixed top-2 left-2 z-[100] liquid-glass rounded-full px-4 py-2 text-sm font-medium text-white" style="background: rgba(0,0,0,0.85);">Skip to main content</a>
+
+    <div id="root"></div>
+
+    <article id="post-body" data-meta='{"slug":"telecloud-telegram-storage","title":"TeleCloud: Building Unlimited Cloud Storage on the Telegram API","description":"How I built a serverless file storage platform on the Telegram Bot API. Architecture, tradeoffs, and what I would change.","published":"2026-03-18","modified":"2026-05-28","readMin":7,"wordCount":1300,"tags":["Telegram API","Node.js","Architecture"]}' style="padding:80px 24px;max-width:760px;margin:0 auto;font-family:Barlow,system-ui,sans-serif;color:#fff;background:#000;line-height:1.7;">
+      <p>I got tired of paying monthly fees just to host a few hundred GB of files for side projects. So I built <strong>TeleCloud</strong> — a serverless file storage platform that uses the Telegram Bot API as its actual storage backend. No S3, no R2, no Backblaze, no monthly bill. It's live at <a href="https://telecloud.m2hio.in/" target="_blank" rel="noreferrer">telecloud.m2hio.in</a>.</p>
+
+      <p>This post covers why this works, the architecture, the inevitable tradeoffs, and the situations where I'd absolutely <em>not</em> use this approach.</p>
+
+      <h2>Why Telegram?</h2>
+      <p>Telegram bots can send and receive files up to 2 GB each. The bot API returns a stable file_id string for every uploaded file, which you can later exchange for a temporary CDN download URL. The actual storage is on Telegram's infrastructure — your bot is just a key-management layer.</p>
+
+      <p>This gives you, in practical terms:</p>
+      <ul>
+        <li><strong>Effectively unlimited storage</strong> — Telegram has never imposed a per-bot quota in the years it's offered this.</li>
+        <li><strong>Free egress</strong> — when a user downloads, they hit Telegram's CDN, not your server.</li>
+        <li><strong>Multi-region distribution</strong> for free.</li>
+      </ul>
+
+      <h2>Architecture</h2>
+      <p>The system has three parts:</p>
+      <ol>
+        <li>A <strong>Cloudflare Worker</strong> serving the web UI and API (free tier).</li>
+        <li>A <strong>Telegram bot</strong> that forwards uploads into a private channel and stores metadata in <strong>Cloudflare KV</strong>.</li>
+        <li>The <strong>UI</strong> — a thin React app that talks to the Worker and displays files.</li>
+      </ol>
+
+      <h3>Upload flow</h3>
+      <ol>
+        <li>User picks a file in the browser. Worker generates a one-time upload token.</li>
+        <li>The browser POSTs the file to the Worker, which streams it to the Telegram <code>sendDocument</code> endpoint with the bot token.</li>
+        <li>Telegram returns a file_id. The Worker stores filename, size, owner, and timestamp metadata in KV under a UUID key.</li>
+        <li>The user gets back a clean URL like <code>/f/uuid</code>.</li>
+      </ol>
+
+      <h3>Download flow</h3>
+      <ol>
+        <li>Visitor hits <code>/f/uuid</code>.</li>
+        <li>Worker reads metadata from KV, calls <code>getFile</code> on the Telegram bot to get a temporary download path.</li>
+        <li>Worker 302-redirects to the Telegram CDN URL.</li>
+        <li>The visitor's browser downloads directly from Telegram. The Worker is no longer involved.</li>
+      </ol>
+      <p>Total Worker invocations per download: <strong>1</strong>. No proxying, no egress charges, no compute cost beyond a CPU-time slice that fits inside the Cloudflare free tier.</p>
+
+      <h2>The tradeoffs (read these before you copy this)</h2>
+      <h3>You don't own the storage</h3>
+      <p>If Telegram changes their bot API terms or rate limits, your files become inaccessible. This is fine for personal projects and weekend tools. It is <strong>absolutely not fine</strong> for production storage anyone depends on. Don't put your customer's data here.</p>
+
+      <h3>Per-file size cap</h3>
+      <p>The 2 GB hard limit per file is fine for almost everything but breaks for large video uploads. I added a chunking layer that splits files at 1.9 GB and reassembles them on download — but that means the simple "one file, one redirect" design becomes a stream-merging proxy for chunked files, which eats Worker CPU.</p>
+
+      <h3>Cold-cache download latency</h3>
+      <p>Each download requires one <code>getFile</code> round-trip to the Telegram API. That's typically 80–150ms before the redirect. I tried caching the temporary CDN URL in KV with a TTL, but Telegram's URLs expire after about an hour and become 404s — so caching aggressively backfires.</p>
+
+      <h2>Numbers</h2>
+      <ul>
+        <li>Total stored: ~600 GB across 14,000 files (mostly mine and friends').</li>
+        <li>Median download latency: ~190ms (worker + Telegram getFile + redirect).</li>
+        <li>Monthly cost: <strong>$0.</strong> Cloudflare free tier is enough.</li>
+        <li>Reliability over 8 months: ~99.7% (a few Telegram API hiccups).</li>
+      </ul>
+
+      <h2>Should you build this?</h2>
+      <p>For personal projects, demo data, throwaway file sharing, or hobby tools — absolutely. For a service customers pay you for — no. Use R2, S3, or B2 and pay the few cents per GB. Reliability and ToS predictability are worth more than the savings.</p>
+      <p>If you want to use TeleCloud as-is, it's free at <a href="https://telecloud.m2hio.in/" target="_blank" rel="noreferrer">telecloud.m2hio.in</a>. If you want me to build something similar but on real cloud storage, I'm at <a href="mailto:m2hgamerz.prince@gmail.com">m2hgamerz.prince@gmail.com</a>.</p>
+    </article>
+
+    <script src="/src/data/content.js" type="text/babel"></script>
+    <script src="/src/data/posts.js" type="text/babel"></script>
+    <script src="/src/lib/icons.js" type="text/babel"></script>
+    <script src="/src/lib/hooks.js" type="text/babel"></script>
+    <script src="/src/lib/analytics.js"></script>
+    <script src="/src/components/Navbar.js" type="text/babel"></script>
+    <script src="/src/components/BlogPost.js" type="text/babel"></script>
+    <script src="/src/components/BlogPostApp.js" type="text/babel"></script>
+  </body>
+</html>

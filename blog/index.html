@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Long-form writeups by Prince Kumar — building production web apps, APIs, and tooling at M2H Web Solution. Real architecture, real numbers." />
+    <meta name="author" content="Prince Kumar" />
+    <meta name="keywords" content="Prince Kumar blog, M2H Web Solution articles, full-stack engineering, Cloudflare Workers, Hono.js, Telegram API, Node.js tutorial" />
+    <link rel="canonical" href="https://prince.m2hio.in/blog/" />
+
+    <meta name="ga-id" content="" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog — Prince Kumar" />
+    <meta property="og:description" content="Long-form writeups on the systems I've shipped. Real architecture, real numbers, real tradeoffs." />
+    <meta property="og:url" content="https://prince.m2hio.in/blog/" />
+    <meta property="og:site_name" content="Prince Kumar · M2H Web Solution" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:secure_url" content="https://prince.m2hio.in/og.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta property="og:image:alt" content="Blog — Prince Kumar's writeups on web design, web development, and shipping production software." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@m2hgamerz" />
+    <meta name="twitter:creator" content="@m2hgamerz" />
+    <meta name="twitter:title" content="Blog — Prince Kumar" />
+    <meta name="twitter:description" content="Long-form writeups on the systems I've shipped." />
+    <meta name="twitter:image" content="https://prince.m2hio.in/og.png" />
+    <meta name="twitter:image:alt" content="Blog — Prince Kumar's writeups on web design, web development, and shipping production software." />
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f0c29'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
+
+    <title>Blog — Prince Kumar · M2H Web Solution</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: {
+          fontFamily: { heading: ["'Instrument Serif'", "serif"], body: ["'Barlow'", "sans-serif"] },
+          borderRadius: { DEFAULT: "9999px" },
+        } },
+      };
+    </script>
+    <link rel="stylesheet" href="/src/styles/main.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://prince.m2hio.in/blog/#blog",
+        "url": "https://prince.m2hio.in/blog/",
+        "name": "Prince Kumar · Notes from the Workshop",
+        "description": "Long-form writeups on production engineering — full-stack apps, APIs, edge deployments.",
+        "publisher": {
+          "@type": "Person",
+          "name": "Prince Kumar",
+          "url": "https://prince.m2hio.in/"
+        },
+        "inLanguage": "en"
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://prince.m2hio.in/" },
+          { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://prince.m2hio.in/blog/" }
+        ]
+      }
+    </script>
+
+    <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>window.Motion = window.Motion || window.FramerMotion;</script>
+  </head>
+  <body class="bg-black text-white font-body">
+    <a href="#main" class="sr-only focus:not-sr-only fixed top-2 left-2 z-[100] liquid-glass rounded-full px-4 py-2 text-sm font-medium text-white" style="background: rgba(0,0,0,0.85);">Skip to main content</a>
+
+    <noscript>
+      <div style="padding:80px 24px;max-width:880px;margin:0 auto;font-family:Barlow,system-ui,sans-serif;color:#fff;background:#000;line-height:1.5;">
+        <h1 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:48px;letter-spacing:-2px;margin:0 0 24px;">Blog — Prince Kumar</h1>
+        <p>Long-form writeups by Prince Kumar of M2H Web Solution. Visit individual posts:</p>
+        <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;margin:24px 0 12px;">Latest engineering writeups</h2>
+        <ul style="padding-left:20px;opacity:.85;">
+          <li><a style="color:#a78bfa;" href="/blog/qr-ordering-system/">Building a QR Ordering System with Node.js, MongoDB, and WebSockets</a></li>
+          <li><a style="color:#a78bfa;" href="/blog/telecloud-telegram-storage/">TeleCloud: Building Unlimited Cloud Storage on the Telegram API</a></li>
+          <li><a style="color:#a78bfa;" href="/blog/edge-apis-cloudflare-workers-hono/">Edge-First APIs with Cloudflare Workers and Hono.js</a></li>
+        </ul>
+        <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:24px;margin:32px 0 12px;">About the author</h2>
+        <p>Prince Kumar is a self-taught full-stack engineer and the founder of M2H Web Solution. He builds production web apps, REST APIs, and AI-integrated tools end-to-end.</p>
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+
+    <script src="/src/data/content.js" type="text/babel"></script>
+    <script src="/src/data/posts.js" type="text/babel"></script>
+    <script src="/src/lib/icons.js" type="text/babel"></script>
+    <script src="/src/lib/hooks.js" type="text/babel"></script>
+    <script src="/src/lib/analytics.js"></script>
+    <script src="/src/components/Navbar.js" type="text/babel"></script>
+    <script src="/src/components/BlogIndex.js" type="text/babel"></script>
+
+    <script type="text/babel">
+      function BlogIndexApp() {
+        return (
+          <>
+            <window.Navbar />
+            <window.BlogIndex />
+          </>
+        );
+      }
+      ReactDOM.createRoot(document.getElementById("root")).render(<BlogIndexApp />);
+    </script>
+  </body>
+</html>
