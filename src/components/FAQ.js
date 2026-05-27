@@ -9,20 +9,12 @@
   function FAQItem({ q, a, index }) {
     const num = String(index + 1).padStart(2, "0");
     return (
-      <details
-        className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] group overflow-hidden"
-        itemScope
-        itemProp="mainEntity"
-        itemType="https://schema.org/Question"
-      >
+      <details className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] group overflow-hidden">
         <summary className="cursor-pointer list-none p-4 sm:p-5 flex items-start gap-3 sm:gap-4 select-none">
           <span className="liquid-glass rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[10px] sm:text-[11px] font-body text-white/85 font-medium shrink-0">
             {num}
           </span>
-          <h3
-            itemProp="name"
-            className="flex-1 font-body text-white text-[15px] sm:text-base font-medium leading-snug pt-1"
-          >
+          <h3 className="flex-1 font-body text-white text-[15px] sm:text-base font-medium leading-snug pt-1">
             {q}
           </h3>
           <span className="liquid-glass rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-45">
@@ -36,16 +28,8 @@
             </svg>
           </span>
         </summary>
-        <div
-          className="px-4 sm:px-5 pb-4 sm:pb-5 pl-[60px] sm:pl-[72px] -mt-1"
-          itemScope
-          itemProp="acceptedAnswer"
-          itemType="https://schema.org/Answer"
-        >
-          <p
-            itemProp="text"
-            className="text-[13.5px] sm:text-sm text-white/80 font-body font-light leading-relaxed"
-          >
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pl-[60px] sm:pl-[72px] -mt-1">
+          <p className="text-[13.5px] sm:text-sm text-white/80 font-body font-light leading-relaxed">
             {a}
           </p>
         </div>
@@ -58,8 +42,6 @@
       <section
         id="faq"
         className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
-        itemScope
-        itemType="https://schema.org/FAQPage"
       >
         <window.SectionHeader
           kicker="Frequently Asked"
