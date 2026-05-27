@@ -130,7 +130,7 @@
               </span>
               <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
                 Updated
-                <time dateTime="2026-05-27" itemProp="dateModified">May 2026</time>
+                <time dateTime="2026-05-27">May 2026</time>
               </span>
               <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />

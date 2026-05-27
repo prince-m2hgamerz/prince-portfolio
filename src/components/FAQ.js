@@ -1,6 +1,7 @@
 /* ============================================================
- * FAQ — accordion with FAQPage / Question / Answer microdata.
- * Highly LLM-citable structured Q&A.
+ * FAQ — accordion. JSON-LD FAQPage is injected at runtime from
+ * the same data array, so the structured data and visible
+ * answers can never drift apart.
  * Exposed at window.FAQ
  * ============================================================ */
 (function () {
@@ -38,6 +39,35 @@
   }
 
   function FAQ() {
+    // Inject FAQPage JSON-LD generated from the SAME data the visible
+    // accordion renders — guaranteed to match, no drift, no duplicates.
+    React.useEffect(() => {
+      const id = "faq-jsonld";
+      const existing = document.getElementById(id);
+      if (existing) existing.remove();
+
+      const data = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "@id": "https://prince.m2hio.in/#faq",
+        "mainEntity": C.faq.map((it) => ({
+          "@type": "Question",
+          "name": it.q,
+          "acceptedAnswer": { "@type": "Answer", "text": it.a },
+        })),
+      };
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.id = id;
+      script.text = JSON.stringify(data);
+      document.head.appendChild(script);
+
+      return () => {
+        const s = document.getElementById(id);
+        if (s) s.remove();
+      };
+    }, []);
+
     return (
       <section
         id="faq"
