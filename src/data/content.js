@@ -135,8 +135,8 @@
         { v: "Live", k: "Production" },
       ],
       accent: "orange",
-      href: "https://farresidency.prince.m2hio.in/",
-      display: "farresidency.prince.m2hio.in",
+      href: "https://farresidency.m2hio.in/",
+      display: "farresidency.m2hio.in",
     },
 
     projects: [
@@ -148,8 +148,8 @@
           "Unlimited file storage powered by the Telegram Bot API. No server costs, no GB caps. Built for devs who hate paying for storage.",
         stack: ["Telegram API", "Node", "Cloudflare"],
         accent: "cyan",
-        href: "https://telecloud.prince.m2hio.in/",
-        display: "telecloud.prince.m2hio.in",
+        href: "https://telecloud.m2hio.in/",
+        display: "telecloud.m2hio.in",
       },
       {
         emoji: "🔌",
@@ -181,8 +181,8 @@
           "Real-time peer-to-peer video. No login, no app install, shareable links. WebRTC signaling built from scratch — no SDKs.",
         stack: ["WebRTC", "TypeScript", "Vite"],
         accent: "rose",
-        href: "https://chat.prince.m2hio.in/",
-        display: "chat.prince.m2hio.in",
+        href: "https://chat.m2hio.in/",
+        display: "chat.m2hio.in",
       },
       {
         emoji: "🌐",
@@ -274,14 +274,14 @@
       },
       {
         q: "How do I contact Prince Kumar?",
-        a: "The fastest way to reach Prince is email at m2hgamerz.prince@gmail.com. He also responds on LinkedIn (linkedin.com/in/prince-kumar-m2h), Twitter / X (@m2hgamerz), and through the contact form on prince.m2hio.in.",
+        a: "The fastest way to reach Prince is email at m2hgamerz.prince@gmail.com. He also responds on LinkedIn (linkedin.com/in/prince-kumar-m2h), Twitter / X (@m2hgamerz), and through the contact form on m2hio.in.",
       },
     ],
 
     /* ─────────────────── Contact ─────────────────── */
     contact: {
       email: "m2hgamerz.prince@gmail.com",
-      website: "https://prince.m2hio.in",
+      website: "https://m2hio.in",
       socials: {
         github: "https://github.com/prince-m2hgamerz",
         linkedin: "https://linkedin.com/in/prince-kumar-m2h",

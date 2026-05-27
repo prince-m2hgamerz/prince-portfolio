@@ -128,7 +128,7 @@
 
               {/* Quick links */}
               <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                <SocialPill href={C.contact.website} icon={<Ic.ExternalLink size={16} />} label="prince.m2hio.in" />
+                <SocialPill href={C.contact.website} icon={<Ic.ExternalLink size={16} />} label="m2hio.in" />
                 <SocialPill href={socials.github} icon={<Ic.Github size={16} />} label="GitHub" />
                 <SocialPill href={socials.linkedin} icon={<Ic.Linkedin size={16} />} label="LinkedIn" />
                 <SocialPill href={socials.twitter} icon={<Ic.Twitter size={16} />} label="Twitter / X" />

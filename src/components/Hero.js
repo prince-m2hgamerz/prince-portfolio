@@ -153,7 +153,7 @@
                 <ArrowUpRight size={20} />
               </LH>
               <a
-                href="https://prince.m2hio.in"
+                href="https://m2hio.in"
                 target="_blank"
                 rel="noreferrer"
                 className="tap-44 px-2 text-sm text-white inline-flex items-center gap-2 font-medium hover:opacity-80 transition-opacity"
