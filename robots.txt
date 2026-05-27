@@ -32,4 +32,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://m2hio.in/sitemap.xml
+Sitemap: https://prince.m2hio.in/sitemap.xml

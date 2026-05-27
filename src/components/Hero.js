@@ -124,7 +124,7 @@
             >
               <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
                 By
-                <a rel="author" href="https://m2hio.in/" className="text-white/90 font-medium hover:text-white transition-colors">
+                <a rel="author" href="https://prince.m2hio.in/" className="text-white/90 font-medium hover:text-white transition-colors">
                   Prince Kumar
                 </a>
               </span>
@@ -153,7 +153,7 @@
                 <ArrowUpRight size={20} />
               </LH>
               <a
-                href="https://m2hio.in"
+                href="https://prince.m2hio.in"
                 target="_blank"
                 rel="noreferrer"
                 className="tap-44 px-2 text-sm text-white inline-flex items-center gap-2 font-medium hover:opacity-80 transition-opacity"

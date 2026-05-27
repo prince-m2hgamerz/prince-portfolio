@@ -6,13 +6,13 @@
 
 <br/>
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=750&height=45&lines=Founder+%40+M2H+Web+Solution;Full-Stack+Engineer+%7C+9%2B+Languages;Shipping+Real+Products+%E2%80%94+Not+Just+Side+Projects;Open+Source+%7C+APIs+%7C+AI+Tools+%7C+Cloud)](https://m2hio.in)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=A78BFA&center=true&vCenter=true&width=750&height=45&lines=Founder+%40+M2H+Web+Solution;Full-Stack+Engineer+%7C+9%2B+Languages;Shipping+Real+Products+%E2%80%94+Not+Just+Side+Projects;Open+Source+%7C+APIs+%7C+AI+Tools+%7C+Cloud)](https://prince.m2hio.in)
 
 <br/>
 
 <p>
-  <a href="https://m2hio.in">
-    <img src="https://img.shields.io/badge/Portfolio-m2hio.in-a78bfa?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0f0c29" />
+  <a href="https://prince.m2hio.in">
+    <img src="https://img.shields.io/badge/Portfolio-prince.m2hio.in-a78bfa?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0f0c29" />
   </a>
   <a href="mailto:m2hgamerz.prince@gmail.com">
     <img src="https://img.shields.io/badge/Email-Contact%20Me-a78bfa?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0f0c29" />
@@ -49,14 +49,14 @@
 const Prince = {
   name      : "Prince Kumar",
   title     : "Founder & Full-Stack Engineer",
-  company   : "M2H Web Solution  →  https://m2hio.in",
+  company   : "M2H Web Solution  →  https://prince.m2hio.in",
   location  : "India 🇮🇳",
   languages : ["Python", "JavaScript", "TypeScript", "Go", "PHP", "Bash", "C", "C++", "Ruby"],
   stack     : ["React", "Next.js", "Node.js", "MongoDB", "Tailwind", "Firebase", "Hono.js"],
   learning  : ["Framer Motion", "WebRTC", "Rust", "System Design"],
   interests : ["API Architecture", "AI/LLM Tools", "Edge Computing", "Open Source"],
   contact   : "m2hgamerz.prince@gmail.com",
-  portfolio : "https://m2hio.in",
+  portfolio : "https://prince.m2hio.in",
   available : true,   // Open to freelance & collaboration
   motto     : "Self-taught. Still learning. Shipping anyway."
 }
@@ -78,7 +78,7 @@ const Prince = {
 |:---|:---|
 | 🏗️ **Type** | Full-Stack Product Studio |
 | 📍 **Location** | India — serving clients globally |
-| 🌐 **Website** | [m2hio.in](https://m2hio.in) |
+| 🌐 **Website** | [prince.m2hio.in](https://prince.m2hio.in) |
 | 📸 **Instagram** | [@m2hgamerz](https://instagram.com/m2hgamerz) |
 | 🎯 **Focus** | Web Apps · APIs · Automation · AI Tools · Open Source |
 | 🤝 **Status** | Accepting freelance projects & collaborations |
@@ -254,7 +254,7 @@ Full restaurant management platform with QR-based table ordering, real-time WebS
 - Admin dashboard for menu, orders & pricing management
 - Live client deployment serving real customers
 
-🔗 **Live:** [farresidency.m2hio.in](https://farresidency.m2hio.in/)
+🔗 **Live:** [farresidency.prince.m2hio.in](https://farresidency.prince.m2hio.in/)
 
 </td>
 <td width="50%" valign="top">
@@ -269,7 +269,7 @@ Unlimited file storage powered entirely by the Telegram Bot API. Upload, organiz
 - Serverless by design — zero hosting costs
 - Clean web UI for file management
 
-🔗 **Live:** [telecloud.m2hio.in](https://telecloud.m2hio.in/)
+🔗 **Live:** [telecloud.prince.m2hio.in](https://telecloud.prince.m2hio.in/)
 
 </td>
 </tr>
@@ -318,7 +318,7 @@ Real-time peer-to-peer video calling with no login, no app install, and shareabl
 - Zero authentication — join via link in one click
 - Low-latency P2P connection establishment
 
-🔗 **Live:** [chat.m2hio.in](https://chat.m2hio.in/)
+🔗 **Live:** [chat.prince.m2hio.in](https://chat.prince.m2hio.in/)
 
 </td>
 <td width="50%" valign="top">
@@ -333,7 +333,7 @@ Developer portfolio built with a focus on performance, clean motion design, and 
 - Mobile-first responsive design
 - Optimized for performance and SEO
 
-🔗 **Live:** [m2hio.in](https://m2hio.in) · [📦 Source](https://github.com/prince-m2hgamerz/portfolio)
+🔗 **Live:** [prince.m2hio.in](https://prince.m2hio.in) · [📦 Source](https://github.com/prince-m2hgamerz/portfolio)
 
 </td>
 </tr>
@@ -409,7 +409,7 @@ Q2 2025 Focus:
 
 </div>
 
-📬 **Reach me at:** [m2hgamerz.prince@gmail.com](mailto:m2hgamerz.prince@gmail.com) or [m2hio.in](https://m2hio.in)
+📬 **Reach me at:** [m2hgamerz.prince@gmail.com](mailto:m2hgamerz.prince@gmail.com) or [prince.m2hio.in](https://prince.m2hio.in)
 
 ---
 
@@ -441,7 +441,7 @@ Q2 2025 Focus:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/prince-kumar-m2h)
 [![Twitter / X](https://img.shields.io/badge/Twitter-000000?style=for-the-badge&logo=x&logoColor=white)](https://twitter.com/m2hgamerz)
 [![Instagram](https://img.shields.io/badge/Instagram-E1306C?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/m2hgamerz)
-[![Portfolio](https://img.shields.io/badge/Portfolio-0f0c29?style=for-the-badge&logo=vercel&logoColor=a78bfa)](https://m2hio.in)
+[![Portfolio](https://img.shields.io/badge/Portfolio-0f0c29?style=for-the-badge&logo=vercel&logoColor=a78bfa)](https://prince.m2hio.in)
 [![GitHub Org](https://img.shields.io/badge/M2H%20Org-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/m2h-web-solution)
 
 </div>

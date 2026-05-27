@@ -103,7 +103,7 @@ vercel --prod
 
 ### Custom domain
 
-In Vercel dashboard → Project → **Settings** → **Domains**, add `m2hio.in` and `www.m2hio.in`, then point your DNS at the records Vercel shows you. SSL is automatic.
+In Vercel dashboard → Project → **Settings** → **Domains**, add `prince.m2hio.in` and `www.prince.m2hio.in`, then point your DNS at the records Vercel shows you. SSL is automatic.
 
 ## Editing content
 
