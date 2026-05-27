@@ -43,6 +43,7 @@
 
   function App() {
     React.useEffect(() => {
+      // scroll-margin-top is also set in CSS, but reapply for older browsers.
       document.querySelectorAll("main section[id]").forEach((s) => {
         s.style.scrollMarginTop = "84px";
       });

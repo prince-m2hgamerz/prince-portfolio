@@ -164,12 +164,13 @@
             </div>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
-              <a href="#home" className="hover:text-white transition-colors">Home</a>
-              <a href="#work" className="hover:text-white transition-colors">Work</a>
-              <a href="#services" className="hover:text-white transition-colors">Services</a>
-              <a href="#stack" className="hover:text-white transition-colors">Stack</a>
-              <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-              <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+              <a href="/#home" className="hover:text-white transition-colors">Home</a>
+              <a href="/#work" className="hover:text-white transition-colors">Work</a>
+              <a href="/#services" className="hover:text-white transition-colors">Services</a>
+              <a href="/#stack" className="hover:text-white transition-colors">Stack</a>
+              <a href="/#faq" className="hover:text-white transition-colors">FAQ</a>
+              <a href="/#contact" className="hover:text-white transition-colors">Contact</a>
+              <a href="/blog/" className="hover:text-white transition-colors">Blog</a>
             </div>
 
             <div className="text-xs text-white/55 md:text-right">

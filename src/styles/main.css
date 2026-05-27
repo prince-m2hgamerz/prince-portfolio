@@ -366,6 +366,12 @@ main > section {
 main > section#home {
   content-visibility: visible;
 }
+/* Anchor navigation: leave room for the fixed navbar so #contact (etc.)
+   doesn't land flush against the header. Works on initial load and
+   subsequent in-page hash clicks without depending on JS. */
+main > section[id] {
+  scroll-margin-top: 84px;
+}
 
 /* Headlines: tighten letter-spacing further on very narrow phones */
 @media (max-width: 380px) {
