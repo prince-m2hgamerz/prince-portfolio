@@ -55,6 +55,7 @@
       >
         <FadingVideo
           src={C.videos.capabilities}
+          lazy
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         />
 

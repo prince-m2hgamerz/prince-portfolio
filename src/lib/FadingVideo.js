@@ -8,10 +8,29 @@
   const FADE_MS = 500;
   const FADE_OUT_LEAD = 0.55;
 
-  function FadingVideo({ src, className = "", style }) {
+  function FadingVideo({ src, className = "", style, lazy = false }) {
     const videoRef = useRef(null);
     const rafRef = useRef(null);
     const fadingOutRef = useRef(false);
+    const [shouldLoad, setShouldLoad] = React.useState(!lazy);
+
+    // For lazy videos, only set the src once the wrapper is near the viewport.
+    useEffect(() => {
+      if (!lazy) return;
+      const v = videoRef.current;
+      if (!v) return;
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (entry && entry.isIntersecting) {
+            setShouldLoad(true);
+            io.disconnect();
+          }
+        },
+        { rootMargin: "300px 0px" }
+      );
+      io.observe(v);
+      return () => io.disconnect();
+    }, [lazy]);
 
     useEffect(() => {
       const v = videoRef.current;
@@ -64,22 +83,45 @@
       v.addEventListener("timeupdate", onTimeUpdate);
       v.addEventListener("ended", onEnded);
 
+      // Pause when offscreen — saves significant battery + CPU on mobile.
+      const io = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry) return;
+          if (entry.isIntersecting) {
+            const p = v.play();
+            if (p && typeof p.catch === "function") p.catch(() => {});
+          } else {
+            v.pause();
+          }
+        },
+        { threshold: 0.05 }
+      );
+      io.observe(v);
+
+      // Pause when the tab is hidden too.
+      const onVisibility = () => {
+        if (document.hidden) v.pause();
+      };
+      document.addEventListener("visibilitychange", onVisibility);
+
       return () => {
         if (rafRef.current) cancelAnimationFrame(rafRef.current);
         v.removeEventListener("loadeddata", onLoaded);
         v.removeEventListener("timeupdate", onTimeUpdate);
         v.removeEventListener("ended", onEnded);
+        document.removeEventListener("visibilitychange", onVisibility);
+        io.disconnect();
       };
     }, [src]);
 
     return (
       <video
         ref={videoRef}
-        src={src}
+        src={shouldLoad ? src : undefined}
         autoPlay
         muted
         playsInline
-        preload="auto"
+        preload={lazy ? "metadata" : "auto"}
         className={className}
         style={{ opacity: 0, ...style }}
       />

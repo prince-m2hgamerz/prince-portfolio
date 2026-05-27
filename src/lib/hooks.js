@@ -9,9 +9,16 @@
  * ============================================================ */
 (function () {
   /* ---- Liquid hover spotlight ---- */
+  // Skip on touch / coarse-pointer devices: handler is wasted CPU.
+  const SUPPORTS_HOVER =
+    typeof window !== "undefined" &&
+    window.matchMedia &&
+    window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
   function useLiquidHover() {
     const ref = React.useRef(null);
     React.useEffect(() => {
+      if (!SUPPORTS_HOVER) return;
       const el = ref.current;
       if (!el) return;
       const onMove = (e) => {

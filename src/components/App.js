@@ -8,22 +8,23 @@
     React.useEffect(() => {
       const el = ref.current;
       if (!el) return;
-      let raf = 0;
+      let ticking = false;
+      const update = () => {
+        const h = document.documentElement;
+        const total = h.scrollHeight - h.clientHeight;
+        const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+        el.style.transform = `scaleX(${pct / 100})`;
+        ticking = false;
+      };
       const onScroll = () => {
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(() => {
-          const h = document.documentElement;
-          const total = h.scrollHeight - h.clientHeight;
-          const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
-          el.style.transform = `scaleX(${pct / 100})`;
-        });
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
       };
-      onScroll();
+      update();
       window.addEventListener("scroll", onScroll, { passive: true });
-      return () => {
-        cancelAnimationFrame(raf);
-        window.removeEventListener("scroll", onScroll);
-      };
+      return () => window.removeEventListener("scroll", onScroll);
     }, []);
     return (
       <div className="progress-fixed fixed top-0 left-0 right-0 h-[2px]">

@@ -15,7 +15,17 @@
     const email = window.Content.contact.email;
 
     useEffect(() => {
-      const onScroll = () => setScrolled(window.scrollY > 16);
+      let ticking = false;
+      const update = () => {
+        setScrolled(window.scrollY > 16);
+        ticking = false;
+      };
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
       onScroll();
       window.addEventListener("scroll", onScroll, { passive: true });
       return () => window.removeEventListener("scroll", onScroll);
