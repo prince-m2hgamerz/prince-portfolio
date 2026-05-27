@@ -1,0 +1,2786 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Prince Kumar — Founder & full-stack engineer at M2H Web Solution. Real products, end-to-end engineering, shipped solo." />
+    <meta name="author" content="Prince Kumar" />
+    <meta name="keywords" content="Prince Kumar, M2H Web Solution, full-stack developer, React, Next.js, Node.js, freelance developer India, web apps, APIs, AI tools" />
+    <link rel="canonical" href="https://m2hio.in/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Prince Kumar — Founder, M2H Web Solution" />
+    <meta property="og:description" content="Self-taught. Still learning. Shipping anyway. Full-stack web apps, APIs, and AI tools — designed and shipped end-to-end." />
+    <meta property="og:url" content="https://m2hio.in/" />
+    <meta property="og:site_name" content="Prince Kumar · M2H Web Solution" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content="https://m2hio.in/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="profile:first_name" content="Prince" />
+    <meta property="profile:last_name" content="Kumar" />
+    <meta property="profile:username" content="m2hgamerz" />
+    <meta property="article:author" content="Prince Kumar" />
+    <meta property="article:published_time" content="2025-01-15T00:00:00+05:30" />
+    <meta property="article:modified_time" content="2026-05-27T00:00:00+05:30" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@m2hgamerz" />
+    <meta name="twitter:creator" content="@m2hgamerz" />
+    <meta name="twitter:title" content="Prince Kumar — Founder, M2H Web Solution" />
+    <meta name="twitter:description" content="Self-taught. Still learning. Shipping anyway. Full-stack web apps, APIs, and AI tools — designed and shipped end-to-end." />
+    <meta name="twitter:image" content="https://m2hio.in/og.png" />
+
+    <!-- Inline SVG favicon — italic 'p' on a violet→amber gradient -->
+    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23a78bfa'/><stop offset='1' stop-color='%23f97316'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='%230f0c29'/><circle cx='32' cy='32' r='22' fill='url(%23g)' opacity='0.25'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%230f0c29'/><text x='50%25' y='62%25' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='44' fill='white'>p</text></svg>" />
+
+    <title>Prince Kumar — Founder, M2H Web Solution</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ["'Instrument Serif'", "serif"],
+              body: ["'Barlow'", "sans-serif"],
+            },
+            borderRadius: { DEFAULT: "9999px" },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      html, body { background: #000; color: #fff; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+      }
+
+      /* Subtle scrollbar so it doesn't break the dark glass aesthetic */
+      ::-webkit-scrollbar { width: 10px; height: 10px; }
+      ::-webkit-scrollbar-track { background: #000; }
+      ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 9999px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+      /* ───────── Liquid Glass — exact spec from design.md ───────── */
+      .liquid-glass {
+        background: rgba(255, 255, 255, 0.01);
+        background-blend-mode: luminosity;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border: none;
+        box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      .liquid-glass::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.4px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.45) 0%,
+          rgba(255, 255, 255, 0.15) 20%,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, 0) 60%,
+          rgba(255, 255, 255, 0.15) 80%,
+          rgba(255, 255, 255, 0.45) 100%
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      .liquid-glass-strong {
+        background: rgba(255, 255, 255, 0.01);
+        background-blend-mode: luminosity;
+        backdrop-filter: blur(50px);
+        -webkit-backdrop-filter: blur(50px);
+        border: none;
+        box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+          inset 0 1px 1px rgba(255, 255, 255, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+      .liquid-glass-strong::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1.4px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.5) 0%,
+          rgba(255, 255, 255, 0.2) 20%,
+          rgba(255, 255, 255, 0) 40%,
+          rgba(255, 255, 255, 0) 60%,
+          rgba(255, 255, 255, 0.2) 80%,
+          rgba(255, 255, 255, 0.5) 100%
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      /* Subtle ambient glow used for sections w/o video bg */
+      .ambient-bg {
+        background:
+          radial-gradient(1200px 600px at 50% -10%, rgba(167, 139, 250, 0.10), transparent 60%),
+          radial-gradient(900px 500px at 100% 100%, rgba(249, 115, 22, 0.06), transparent 60%),
+          #000;
+      }
+
+      /* Marquee for the partner / tech ribbon */
+      @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      .marquee-track { animation: marquee 28s linear infinite; }
+      .mask-fade {
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+      }
+
+      /* Floating dot (status pill pulse) */
+      @keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .pulse-dot { animation: pulseDot 1.6s ease-in-out infinite; }
+
+      /* ───────── Liquid hover spotlight ─────────
+         A mouse-tracked radial highlight that lives inside any glass element. */
+      .liquid-hover { position: relative; isolation: isolate; }
+      .liquid-hover::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient(
+          180px circle at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.22),
+          rgba(255, 255, 255, 0.06) 35%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 220ms ease;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .liquid-hover:hover::after { opacity: 1; }
+      .liquid-hover > * { position: relative; z-index: 1; }
+
+      /* Tighter, larger spotlight for prominent CTAs / nav links */
+      .liquid-hover-tight::after {
+        background: radial-gradient(
+          90px circle at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.30),
+          rgba(255, 255, 255, 0.08) 40%,
+          transparent 70%
+        );
+      }
+
+      /* Soft entrance for big section headings */
+      @keyframes floatY {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+      }
+      .float-slow { animation: floatY 6s ease-in-out infinite; }
+
+      /* Reveal-on-scroll accent line */
+      .accent-line {
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      }
+
+      /* Mobile menu animation */
+      @keyframes menuIn {
+        from { opacity: 0; transform: translateY(-8px); filter: blur(8px); }
+        to { opacity: 1; transform: translateY(0); filter: blur(0); }
+      }
+      .menu-in { animation: menuIn 320ms ease-out both; }
+
+      /* ───────── Scroll reveal ───────── */
+      .reveal { opacity: 0; transform: translateY(28px); filter: blur(8px);
+        transition: opacity 800ms cubic-bezier(.2,.7,.2,1),
+                    transform 800ms cubic-bezier(.2,.7,.2,1),
+                    filter 800ms cubic-bezier(.2,.7,.2,1); }
+      .reveal.in-view { opacity: 1; transform: translateY(0); filter: blur(0); }
+      .reveal-delay-1 { transition-delay: 80ms; }
+      .reveal-delay-2 { transition-delay: 160ms; }
+      .reveal-delay-3 { transition-delay: 240ms; }
+      .reveal-delay-4 { transition-delay: 320ms; }
+      .reveal-delay-5 { transition-delay: 400ms; }
+      .reveal-delay-6 { transition-delay: 480ms; }
+
+      /* ───────── Animated gradient border (hover) ─────────
+         Used for premium project cards. */
+      .grad-border {
+        position: relative;
+        isolation: isolate;
+      }
+      .grad-border::after {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: conic-gradient(
+          from var(--ang, 0deg),
+          rgba(167,139,250,0) 0deg,
+          rgba(167,139,250,0.85) 90deg,
+          rgba(249,115,22,0.85) 180deg,
+          rgba(167,139,250,0.85) 270deg,
+          rgba(167,139,250,0) 360deg
+        );
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 350ms ease;
+        pointer-events: none;
+        z-index: 2;
+      }
+      @property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+      @keyframes spinAng { to { --ang: 360deg; } }
+      .grad-border:hover::after {
+        opacity: 1;
+        animation: spinAng 4s linear infinite;
+      }
+
+      /* ───────── Shimmer (for Hire-Me CTA) ───────── */
+      @keyframes shimmer {
+        0% { transform: translateX(-120%) skewX(-12deg); }
+        100% { transform: translateX(220%) skewX(-12deg); }
+      }
+      .shimmer-on-hover { position: relative; overflow: hidden; }
+      .shimmer-on-hover::before {
+        content: "";
+        position: absolute;
+        top: 0; bottom: 0; width: 40%;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(255,255,255,0.55) 50%,
+          transparent 100%);
+        transform: translateX(-120%) skewX(-12deg);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 200ms ease;
+      }
+      .shimmer-on-hover:hover::before { opacity: 1; animation: shimmer 1.1s ease-out; }
+
+      /* ───────── Aurora background (Connect section) ───────── */
+      @keyframes auroraShift {
+        0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+        50% { transform: translate3d(2%, -3%, 0) scale(1.06); }
+      }
+      .aurora {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .aurora::before, .aurora::after {
+        content: "";
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        max-width: 900px;
+        max-height: 900px;
+        border-radius: 9999px;
+        filter: blur(80px);
+        opacity: 0.45;
+        animation: auroraShift 14s ease-in-out infinite;
+      }
+      .aurora::before {
+        background: radial-gradient(closest-side, rgba(167,139,250,0.55), transparent 70%);
+        top: -10%;
+        left: -10%;
+      }
+      .aurora::after {
+        background: radial-gradient(closest-side, rgba(249,115,22,0.40), transparent 70%);
+        bottom: -10%;
+        right: -10%;
+        animation-delay: -7s;
+      }
+
+      /* ───────── Dotted texture for section accents ───────── */
+      .dot-grid {
+        background-image:
+          radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+        background-size: 22px 22px;
+      }
+
+      /* ───────── Tilt-on-hover ───────── */
+      .tilt {
+        transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+        transition: transform 240ms ease;
+        will-change: transform;
+      }
+
+      /* ───────── KBD chip styling ───────── */
+      kbd.kbd {
+        font-family: 'Barlow', sans-serif;
+        font-size: 11px;
+        padding: 2px 7px;
+        border-radius: 6px;
+        background: rgba(255,255,255,0.08);
+        box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+        color: rgba(255,255,255,0.85);
+      }
+
+      /* Selection */
+      ::selection { background: rgba(167,139,250,0.35); color: #fff; }
+
+      /* Reduce hero typography squeeze on tiny screens */
+      @media (max-width: 480px) {
+        .hero-headline { letter-spacing: -2px !important; }
+      }
+
+      /* Disable heavy hover effects on touch devices */
+      @media (hover: none) {
+        .liquid-hover::after, .grad-border::after { display: none; }
+      }
+
+      /* ───────── Mobile-only refinements ───────── */
+      /* Make all primary tap targets reach the 44px minimum */
+      @media (max-width: 640px) {
+        .tap-44 { min-height: 44px; }
+      }
+
+      /* Horizontally scrollable rail (e.g., stack tabs) with no scrollbar */
+      .h-scroll {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .h-scroll::-webkit-scrollbar { display: none; }
+      .h-scroll-mask {
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+                mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      }
+
+      /* Prevent oversized backdrop-filter on low-power phones */
+      @media (max-width: 480px) {
+        .liquid-glass-strong {
+          backdrop-filter: blur(24px);
+          -webkit-backdrop-filter: blur(24px);
+        }
+        /* Aurora is heavy — soften for small viewports */
+        .aurora::before, .aurora::after { filter: blur(60px); opacity: 0.35; }
+      }
+
+      /* Headlines: tighten letter-spacing further on very narrow phones */
+      @media (max-width: 380px) {
+        .hero-headline { letter-spacing: -1.5px !important; }
+      }
+
+      /* Long URLs / emails should never burst the card */
+      .break-anywhere { overflow-wrap: anywhere; word-break: break-word; }
+
+      /* Visually hidden but accessible to screen readers and crawlers */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+      }
+      /* Reveals an sr-only element when keyboard-focused (skip link) */
+      .focus\:not-sr-only:focus {
+        position: fixed;
+        width: auto;
+        height: auto;
+        padding: 0.5rem 1rem;
+        margin: 0;
+        overflow: visible;
+        clip: auto;
+        white-space: normal;
+        outline: 2px solid rgba(167,139,250,0.8);
+        outline-offset: 2px;
+      }
+    </style>
+
+    <!-- Structured data — Person + Organization + FAQ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://m2hio.in/#person",
+            "name": "Prince Kumar",
+            "givenName": "Prince",
+            "familyName": "Kumar",
+            "jobTitle": "Founder & Full-Stack Engineer",
+            "description": "Self-taught full-stack engineer and founder of M2H Web Solution. Builds production web apps, APIs, and AI tools end-to-end.",
+            "url": "https://m2hio.in/",
+            "image": "https://m2hio.in/og.png",
+            "email": "mailto:m2hgamerz.prince@gmail.com",
+            "sameAs": [
+              "https://github.com/prince-m2hgamerz",
+              "https://linkedin.com/in/prince-kumar-m2h",
+              "https://twitter.com/m2hgamerz",
+              "https://instagram.com/m2hgamerz"
+            ],
+            "knowsAbout": [
+              "Full-stack development",
+              "REST API design",
+              "React",
+              "Next.js",
+              "Node.js",
+              "TypeScript",
+              "Python",
+              "PHP",
+              "Go",
+              "Cloudflare Workers",
+              "Edge computing",
+              "AI tooling",
+              "WebRTC",
+              "MongoDB",
+              "PostgreSQL"
+            ],
+            "knowsLanguage": ["English", "Hindi"],
+            "worksFor": { "@id": "https://m2hio.in/#org" },
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            },
+            "alumniOf": {
+              "@type": "EducationalOrganization",
+              "name": "Self-taught"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://m2hio.in/#org",
+            "name": "M2H Web Solution",
+            "alternateName": "M2H",
+            "description": "A one-person full-stack product studio building web apps, APIs, AI tools, and automation pipelines for clients globally.",
+            "url": "https://m2hio.in/",
+            "logo": "https://m2hio.in/og.png",
+            "founder": { "@id": "https://m2hio.in/#person" },
+            "foundingDate": "2022",
+            "areaServed": "Worldwide",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "IN"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "m2hgamerz.prince@gmail.com",
+              "contactType": "Customer Support",
+              "availableLanguage": ["English", "Hindi"]
+            },
+            "sameAs": [
+              "https://instagram.com/m2hgamerz",
+              "https://github.com/prince-m2hgamerz"
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://m2hio.in/#website",
+            "url": "https://m2hio.in/",
+            "name": "Prince Kumar · M2H Web Solution",
+            "publisher": { "@id": "https://m2hio.in/#person" },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://m2hio.in/#webpage",
+            "url": "https://m2hio.in/",
+            "name": "Prince Kumar — Founder, M2H Web Solution",
+            "description": "Portfolio of Prince Kumar, founder of M2H Web Solution. Production web apps, APIs, and AI tools shipped solo end-to-end.",
+            "isPartOf": { "@id": "https://m2hio.in/#website" },
+            "about": { "@id": "https://m2hio.in/#person" },
+            "mainEntity": { "@id": "https://m2hio.in/#person" },
+            "datePublished": "2025-01-15",
+            "dateModified": "2026-05-27",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "FAQPage",
+            "@id": "https://m2hio.in/#faq",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Who is Prince Kumar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Prince Kumar is a self-taught full-stack engineer based in India and the founder of M2H Web Solution. He designs, builds, and ships production web applications, REST APIs, and AI-integrated tools end-to-end — without a team, without shortcuts."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is M2H Web Solution?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "M2H Web Solution is a one-person full-stack product studio founded by Prince Kumar. The studio builds web apps, edge-deployed APIs, AI tooling, and automation pipelines for clients across India and globally."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What technologies does Prince work with?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Prince works in 9+ programming languages with daily-driver expertise in Python, JavaScript, TypeScript, PHP, and Go. On the frontend he uses React, Next.js, Tailwind CSS, and Framer Motion. On the backend he builds with Node.js, Hono.js, Express, Flask, and Cloudflare Workers, backed by MongoDB, PostgreSQL, MySQL, and Firebase."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is Prince available for freelance projects?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Prince is currently accepting freelance and consulting work for full-stack web apps, REST/GraphQL APIs, AI integrations, edge deployments, and authentication systems. Replies are sent within 24 hours via email at m2hgamerz.prince@gmail.com."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How does Prince charge for projects?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Every engagement starts with a free 30-minute discovery call, followed by a fixed-fee quote with a defined scope and timeline. Build progress is shared on a staging URL with weekly demos. The fee covers production deployment, full handover documentation, and 30 days of post-launch support."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I contact Prince Kumar?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The fastest way to reach Prince is email at m2hgamerz.prince@gmail.com. He also responds on LinkedIn (linkedin.com/in/prince-kumar-m2h), Twitter / X (@m2hgamerz), and through the contact form on m2hio.in."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <script
+      src="https://unpkg.com/react@18.3.1/umd/react.production.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js"
+      integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/framer-motion@11.11.17/dist/framer-motion.js"></script>
+    <script>
+      window.Motion = window.Motion || window.FramerMotion;
+
+      // Suppress benign framer-motion list-key warnings (per design notes)
+      (function () {
+        const _err = console.error;
+        console.error = function (...args) {
+          const msg = args[0];
+          if (typeof msg === "string" && /unique "key" prop/.test(msg)) return;
+          return _err.apply(console, args);
+        };
+      })();
+    </script>
+  </head>
+  <body class="bg-black text-white font-body">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only fixed top-2 left-2 z-[100] liquid-glass rounded-full px-4 py-2 text-sm font-medium text-white"
+      style="background: rgba(0,0,0,0.85);"
+    >Skip to main content</a>
+
+    <noscript>
+      <div style="padding:80px 24px;max-width:880px;margin:0 auto;font-family:Barlow,system-ui,sans-serif;color:#fff;background:#000;line-height:1.5;">
+        <h1 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:48px;letter-spacing:-2px;margin:0 0 24px;">Prince Kumar — Founder, M2H Web Solution</h1>
+        <p style="opacity:.85;font-size:16px;margin:0 0 24px;">Self-taught full-stack engineer based in India. Founder of M2H Web Solution. I design, build, and ship production web apps, REST APIs, and AI-integrated tools end-to-end.</p>
+        <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;margin:32px 0 12px;">What I build</h2>
+        <ul style="padding-left:20px;opacity:.85;">
+          <li>Full-stack web applications — React, Next.js, Node.js</li>
+          <li>REST and edge-deployed APIs — Cloudflare Workers, Hono.js</li>
+          <li>AI tooling, Telegram bots, and automation pipelines</li>
+          <li>Authentication and security systems</li>
+          <li>Open source contributions</li>
+        </ul>
+        <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;margin:32px 0 12px;">Featured work</h2>
+        <ul style="padding-left:20px;opacity:.85;">
+          <li><a style="color:#a78bfa;" href="https://farresidency.m2hio.in/">QR Smart Ordering System</a> — full restaurant management platform</li>
+          <li><a style="color:#a78bfa;" href="https://telecloud.m2hio.in/">TeleCloud</a> — serverless storage on the Telegram API</li>
+          <li><a style="color:#a78bfa;" href="https://m2h-api-playground.vercel.app/">M2H API Playground</a> — browser-native HTTP client</li>
+          <li><a style="color:#a78bfa;" href="https://mobilerepairxyz.in/">MobileRepairXYZ</a> — repair shop platform</li>
+          <li><a style="color:#a78bfa;" href="https://chat.m2hio.in/">PrinceVChat</a> — peer-to-peer video calling</li>
+        </ul>
+        <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-size:28px;margin:32px 0 12px;">Contact</h2>
+        <p style="opacity:.85;">Email <a style="color:#a78bfa;" href="mailto:m2hgamerz.prince@gmail.com">m2hgamerz.prince@gmail.com</a>. Replies within 24 hours. Available for freelance projects.</p>
+        <p style="opacity:.6;font-size:13px;margin-top:32px;">This portfolio is a JavaScript-rendered single-page application. Enable JavaScript for the full experience.</p>
+      </div>
+    </noscript>
+
+    <div id="root"></div>
+
+
+    <!-- ─────────────────── Icons ─────────────────── -->
+    <script type="text/babel">
+      const Icon = ({ d, size = 24, strokeWidth = 2, fill = "none", className = "" }) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill={fill}
+          stroke="currentColor"
+          strokeWidth={strokeWidth}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className={className}
+        >
+          {d}
+        </svg>
+      );
+
+      const ArrowUpRight = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <path d="M7 17 17 7" />
+              <path d="M7 7h10v10" />
+            </>
+          }
+        />
+      );
+
+      const Play = ({ size = 24, className = "" }) => (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className={className}
+        >
+          <polygon points="6 4 20 12 6 20 6 4" />
+        </svg>
+      );
+
+      const Mail = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <rect x="3" y="5" width="18" height="14" rx="2" />
+              <path d="m3 7 9 6 9-6" />
+            </>
+          }
+        />
+      );
+
+      const Github = (p) => (
+        <Icon
+          {...p}
+          d={
+            <path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.34-1.27-1.7-1.27-1.7-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.76 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.45.11-3.02 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.62 1.57.23 2.73.11 3.02.74.81 1.18 1.84 1.18 3.1 0 4.42-2.7 5.39-5.27 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5z" />
+          }
+          fill="currentColor"
+          strokeWidth={0}
+        />
+      );
+
+      const Linkedin = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </>
+          }
+        />
+      );
+
+      const Twitter = (p) => (
+        <Icon
+          {...p}
+          d={<path d="M18 2H21l-7 8 8 12h-6l-5-7-6 7H2l8-9-8-11h6l5 7Z" />}
+          fill="currentColor"
+          strokeWidth={0}
+        />
+      );
+
+      const Instagram = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <rect x="3" y="3" width="18" height="18" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.6" fill="currentColor" />
+            </>
+          }
+        />
+      );
+
+      const ExternalLink = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+              <path d="M15 3h6v6" />
+              <path d="M10 14 21 3" />
+            </>
+          }
+        />
+      );
+
+      const Code = (p) => (
+        <Icon
+          {...p}
+          d={
+            <>
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </>
+          }
+        />
+      );
+
+      const Sparkle = (p) => (
+        <Icon
+          {...p}
+          d={
+            <path d="M12 2v6m0 8v6M2 12h6m8 0h6M5 5l4 4m6 6 4 4M5 19l4-4m6-6 4-4" />
+          }
+        />
+      );
+
+      window.Icons = { ArrowUpRight, Play, Mail, Github, Linkedin, Twitter, Instagram, ExternalLink, Code, Sparkle };
+    </script>
+
+    <!-- ─────────────────── FadingVideo ─────────────────── -->
+    <script type="text/babel">
+      const { useEffect, useRef } = React;
+
+      const FADE_MS = 500;
+      const FADE_OUT_LEAD = 0.55;
+
+      function FadingVideo({ src, className = "", style }) {
+        const videoRef = useRef(null);
+        const rafRef = useRef(null);
+        const fadingOutRef = useRef(false);
+
+        useEffect(() => {
+          const v = videoRef.current;
+          if (!v) return;
+
+          const fadeTo = (target, duration = FADE_MS) => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            const start = performance.now();
+            const from = parseFloat(v.style.opacity || "0");
+            const delta = target - from;
+            const tick = (now) => {
+              const t = Math.min(1, (now - start) / duration);
+              const eased = t; // linear is fine for a crossfade
+              v.style.opacity = String(from + delta * eased);
+              if (t < 1) rafRef.current = requestAnimationFrame(tick);
+            };
+            rafRef.current = requestAnimationFrame(tick);
+          };
+
+          const onLoaded = () => {
+            v.style.opacity = "0";
+            const p = v.play();
+            if (p && typeof p.catch === "function") p.catch(() => {});
+            fadeTo(1);
+          };
+
+          const onTimeUpdate = () => {
+            if (!fadingOutRef.current && v.duration) {
+              const remaining = v.duration - v.currentTime;
+              if (remaining > 0 && remaining <= FADE_OUT_LEAD) {
+                fadingOutRef.current = true;
+                fadeTo(0);
+              }
+            }
+          };
+
+          const onEnded = () => {
+            v.style.opacity = "0";
+            setTimeout(() => {
+              try {
+                v.currentTime = 0;
+                const p = v.play();
+                if (p && typeof p.catch === "function") p.catch(() => {});
+              } catch (_) {}
+              fadingOutRef.current = false;
+              fadeTo(1);
+            }, 100);
+          };
+
+          v.addEventListener("loadeddata", onLoaded);
+          v.addEventListener("timeupdate", onTimeUpdate);
+          v.addEventListener("ended", onEnded);
+
+          return () => {
+            if (rafRef.current) cancelAnimationFrame(rafRef.current);
+            v.removeEventListener("loadeddata", onLoaded);
+            v.removeEventListener("timeupdate", onTimeUpdate);
+            v.removeEventListener("ended", onEnded);
+          };
+        }, [src]);
+
+        return (
+          <video
+            ref={videoRef}
+            src={src}
+            autoPlay
+            muted
+            playsInline
+            preload="auto"
+            className={className}
+            style={{ opacity: 0, ...style }}
+          />
+        );
+      }
+
+      window.FadingVideo = FadingVideo;
+    </script>
+
+    <!-- ─────────────────── BlurText ─────────────────── -->
+    <script type="text/babel">
+      const { motion } = window.Motion;
+      const { useEffect: useEffectBT, useRef: useRefBT, useState: useStateBT } = React;
+
+      function BlurText({ text, className = "", as: Tag = "p", stagger = 100 }) {
+        const ref = useRefBT(null);
+        const [inView, setInView] = useStateBT(false);
+
+        useEffectBT(() => {
+          if (!ref.current) return;
+          const obs = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting && e.intersectionRatio >= 0.1) {
+                  setInView(true);
+                  obs.disconnect();
+                }
+              });
+            },
+            { threshold: [0.1] }
+          );
+          obs.observe(ref.current);
+          return () => obs.disconnect();
+        }, []);
+
+        const words = text.split(" ");
+
+        return (
+          <Tag
+            ref={ref}
+            className={className}
+            style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", rowGap: "0.1em" }}
+          >
+            {words.map((w, i) => (
+              <motion.span
+                key={`${w}-${i}`}
+                initial={{ filter: "blur(10px)", opacity: 0, y: 50 }}
+                animate={
+                  inView
+                    ? {
+                        filter: ["blur(10px)", "blur(5px)", "blur(0px)"],
+                        opacity: [0, 0.5, 1],
+                        y: [50, -5, 0],
+                      }
+                    : {}
+                }
+                transition={{
+                  duration: 0.7,
+                  times: [0, 0.5, 1],
+                  ease: "easeOut",
+                  delay: (i * stagger) / 1000,
+                }}
+                style={{ display: "inline-block", marginRight: "0.28em" }}
+              >
+                {w}
+              </motion.span>
+            ))}
+          </Tag>
+        );
+      }
+
+      window.BlurText = BlurText;
+    </script>
+
+
+    <!-- ─────────────────── Liquid hover hook ─────────────────── -->
+    <script type="text/babel">
+      // Wires --mx / --my CSS vars to the cursor position so .liquid-hover renders a spotlight.
+      function useLiquidHover() {
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const onMove = (e) => {
+            const r = el.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+            el.style.setProperty("--mx", `${x}%`);
+            el.style.setProperty("--my", `${y}%`);
+          };
+          el.addEventListener("mousemove", onMove);
+          return () => el.removeEventListener("mousemove", onMove);
+        }, []);
+        return ref;
+      }
+      window.useLiquidHover = useLiquidHover;
+
+      // A button-like wrapper that auto-binds the spotlight effect.
+      function LiquidHover({ as: Tag = "div", className = "", tight = false, children, ...rest }) {
+        const ref = useLiquidHover();
+        const cls = `liquid-hover ${tight ? "liquid-hover-tight" : ""} ${className}`;
+        return (
+          <Tag ref={ref} className={cls} {...rest}>
+            {children}
+          </Tag>
+        );
+      }
+      window.LiquidHover = LiquidHover;
+    </script>
+
+    <!-- ─────────────────── Scroll Reveal & Tilt helpers ─────────────────── -->
+    <script type="text/babel">
+      // Adds .in-view to its child element when scrolled into view.
+      function Reveal({ as: Tag = "div", delay = 0, className = "", children, ...rest }) {
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const obs = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  el.classList.add("in-view");
+                  obs.unobserve(el);
+                }
+              });
+            },
+            { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+          );
+          obs.observe(el);
+          return () => obs.disconnect();
+        }, []);
+
+        const delayClass = delay ? `reveal-delay-${delay}` : "";
+        return (
+          <Tag
+            ref={ref}
+            className={`reveal ${delayClass} ${className}`}
+            {...rest}
+          >
+            {children}
+          </Tag>
+        );
+      }
+      window.Reveal = Reveal;
+
+      // 3D tilt — sets --rx / --ry CSS vars based on cursor inside element.
+      function useTilt(intensity = 6) {
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const onMove = (e) => {
+            const r = el.getBoundingClientRect();
+            const x = (e.clientX - r.left) / r.width - 0.5;
+            const y = (e.clientY - r.top) / r.height - 0.5;
+            el.style.setProperty("--ry", `${x * intensity}deg`);
+            el.style.setProperty("--rx", `${-y * intensity}deg`);
+          };
+          const onLeave = () => {
+            el.style.setProperty("--ry", `0deg`);
+            el.style.setProperty("--rx", `0deg`);
+          };
+          el.addEventListener("mousemove", onMove);
+          el.addEventListener("mouseleave", onLeave);
+          return () => {
+            el.removeEventListener("mousemove", onMove);
+            el.removeEventListener("mouseleave", onLeave);
+          };
+        }, [intensity]);
+        return ref;
+      }
+      window.useTilt = useTilt;
+
+      // Magnetic — gently pulls the element toward the cursor.
+      function useMagnetic(strength = 0.25) {
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const onMove = (e) => {
+            const r = el.getBoundingClientRect();
+            const x = e.clientX - (r.left + r.width / 2);
+            const y = e.clientY - (r.top + r.height / 2);
+            el.style.transform = `translate3d(${x * strength}px, ${y * strength}px, 0)`;
+          };
+          const onLeave = () => {
+            el.style.transform = "translate3d(0,0,0)";
+          };
+          el.addEventListener("mousemove", onMove);
+          el.addEventListener("mouseleave", onLeave);
+          return () => {
+            el.removeEventListener("mousemove", onMove);
+            el.removeEventListener("mouseleave", onLeave);
+          };
+        }, [strength]);
+        return ref;
+      }
+      window.useMagnetic = useMagnetic;
+    </script>
+
+    <!-- ─────────────────── Navbar ─────────────────── -->
+    <script type="text/babel">
+      const { ArrowUpRight: NavArrow } = window.Icons;
+      const { useState: useStateNav, useEffect: useEffectNav } = React;
+
+      function Navbar() {
+        const [open, setOpen] = useStateNav(false);
+        const [scrolled, setScrolled] = useStateNav(false);
+        const LH = window.LiquidHover;
+
+        useEffectNav(() => {
+          const onScroll = () => setScrolled(window.scrollY > 16);
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+          return () => window.removeEventListener("scroll", onScroll);
+        }, []);
+
+        // Close menu on resize to desktop
+        useEffectNav(() => {
+          const onResize = () => {
+            if (window.innerWidth >= 1024) setOpen(false);
+          };
+          window.addEventListener("resize", onResize);
+          return () => window.removeEventListener("resize", onResize);
+        }, []);
+
+        // Lock body scroll when menu is open
+        useEffectNav(() => {
+          document.body.style.overflow = open ? "hidden" : "";
+          return () => {
+            document.body.style.overflow = "";
+          };
+        }, [open]);
+
+        const links = [
+          { label: "Home", href: "#home" },
+          { label: "Capabilities", href: "#capabilities" },
+          { label: "Stack", href: "#stack" },
+          { label: "Work", href: "#work" },
+          { label: "Services", href: "#services" },
+          { label: "FAQ", href: "#faq" },
+          { label: "Contact", href: "#contact" },
+        ];
+
+        return (
+          <>
+            <header role="banner">
+              <nav
+                className={`fixed top-3 sm:top-4 left-0 right-0 z-50 px-3 sm:px-6 lg:px-12 transition-all duration-300 ${
+                  scrolled ? "scale-[0.985]" : "scale-100"
+                }`}
+                aria-label="Primary"
+              >
+              <div className="flex items-center justify-between max-w-7xl mx-auto">
+                {/* Logo */}
+                <LH
+                  as="a"
+                  href="#home"
+                  tight
+                  className="liquid-glass rounded-full w-12 h-12 flex items-center justify-center text-white shrink-0"
+                  aria-label="Prince Kumar — home"
+                >
+                  <span
+                    className="font-heading italic text-2xl leading-none"
+                    style={{ marginTop: "-2px" }}
+                  >
+                    p
+                  </span>
+                </LH>
+
+                {/* Desktop pill */}
+                <div className="hidden lg:block">
+                  <div className="liquid-glass rounded-full px-1.5 py-1.5 flex items-center gap-0.5">
+                    {links.map((l) => (
+                      <LH
+                        as="a"
+                        key={l.href}
+                        href={l.href}
+                        tight
+                        className="rounded-full px-3.5 py-2 text-sm font-medium text-white/85 hover:text-white font-body transition-colors"
+                      >
+                        {l.label}
+                      </LH>
+                    ))}
+                    <LH
+                      as="a"
+                      href="mailto:m2hgamerz.prince@gmail.com"
+                      tight
+                      className="ml-1 inline-flex items-center gap-1.5 bg-white text-black rounded-full px-4 py-2 text-sm font-semibold whitespace-nowrap hover:bg-white/90 transition-colors"
+                    >
+                      Hire Me
+                      <NavArrow size={16} />
+                    </LH>
+                  </div>
+                </div>
+
+                {/* Mobile right side */}
+                <div className="lg:hidden flex items-center gap-2">
+                  <LH
+                    as="a"
+                    href="mailto:m2hgamerz.prince@gmail.com"
+                    tight
+                    className="hidden sm:inline-flex items-center gap-1.5 bg-white text-black rounded-full px-3.5 py-2 text-xs font-semibold"
+                  >
+                    Hire
+                    <NavArrow size={12} />
+                  </LH>
+                  <LH
+                    as="button"
+                    tight
+                    aria-label="Toggle menu"
+                    aria-expanded={open}
+                    onClick={() => setOpen((v) => !v)}
+                    className="liquid-glass rounded-full w-12 h-12 flex items-center justify-center text-white"
+                  >
+                    <div className="w-5 h-4 relative flex flex-col justify-between">
+                      <span
+                        className={`block h-[1.5px] bg-white rounded-full transition-all duration-300 ${
+                          open ? "translate-y-[7px] rotate-45" : ""
+                        }`}
+                      />
+                      <span
+                        className={`block h-[1.5px] bg-white rounded-full transition-opacity duration-200 ${
+                          open ? "opacity-0" : "opacity-100"
+                        }`}
+                      />
+                      <span
+                        className={`block h-[1.5px] bg-white rounded-full transition-all duration-300 ${
+                          open ? "-translate-y-[7px] -rotate-45" : ""
+                        }`}
+                      />
+                    </div>
+                  </LH>
+                </div>
+
+                {/* Right spacer (desktop) */}
+                <div className="hidden lg:block w-12 h-12" />
+              </div>
+            </nav>
+            </header>
+
+            {/* Mobile menu */}
+            {open && (
+              <div className="fixed inset-0 z-40 lg:hidden">
+                <div
+                  className="absolute inset-0 bg-black/70 backdrop-blur-md"
+                  onClick={() => setOpen(false)}
+                />
+                <div className="absolute top-20 left-3 right-3 menu-in">
+                  <div className="liquid-glass rounded-[1.5rem] p-3">
+                    <div className="flex flex-col">
+                      {links.map((l) => (
+                        <LH
+                          as="a"
+                          key={l.href}
+                          href={l.href}
+                          tight
+                          onClick={() => setOpen(false)}
+                          className="rounded-2xl px-4 py-3.5 text-base font-medium text-white/90 font-body flex items-center justify-between"
+                        >
+                          <span>{l.label}</span>
+                          <NavArrow size={16} className="opacity-60" />
+                        </LH>
+                      ))}
+                      <div className="accent-line my-2 mx-4" />
+                      <LH
+                        as="a"
+                        href="mailto:m2hgamerz.prince@gmail.com"
+                        tight
+                        onClick={() => setOpen(false)}
+                        className="rounded-2xl px-4 py-3.5 text-base font-semibold bg-white text-black flex items-center justify-between mt-1"
+                      >
+                        Hire Me
+                        <NavArrow size={16} />
+                      </LH>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </>
+        );
+      }
+
+      window.Navbar = Navbar;
+    </script>
+
+    <!-- ─────────────────── Hero ─────────────────── -->
+    <script type="text/babel">
+      const HeroMotion = window.Motion;
+      const { ArrowUpRight: HArrow, Play: HPlay } = window.Icons;
+
+      function Hero() {
+        const FadingVideoC = window.FadingVideo;
+        const BlurTextC = window.BlurText;
+        const m = HeroMotion.motion;
+
+        const fade = (delay = 0) => ({
+          initial: { filter: "blur(10px)", opacity: 0, y: 20 },
+          animate: { filter: "blur(0px)", opacity: 1, y: 0 },
+          transition: { duration: 0.8, ease: "easeOut", delay },
+        });
+
+        return (
+          <section
+            id="home"
+            className="relative min-h-screen w-full overflow-hidden bg-black flex flex-col"
+          >
+            {/* Background video — top-anchored, 120% scaled */}
+            <FadingVideoC
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4"
+              className="absolute left-1/2 top-0 -translate-x-1/2 object-cover object-top z-0"
+              style={{ width: "120%", height: "120%" }}
+            />
+
+            <div className="relative z-10 flex flex-col flex-1 min-h-screen">
+              <window.Navbar />
+
+              {/* Center content */}
+              <div className="flex-1 flex flex-col items-center justify-center text-center pt-28 pb-12 px-4">
+                {/* Badge */}
+                <m.div {...fade(0.4)} className="max-w-full">
+                  <div className="liquid-glass rounded-full pl-1 pr-3 py-1 inline-flex items-center gap-2 max-w-full">
+                    <span className="bg-white text-black rounded-full px-2.5 py-0.5 text-[11px] sm:text-xs font-semibold shrink-0">
+                      New
+                    </span>
+                    <span className="text-[12px] sm:text-sm text-white/90 font-body truncate">
+                      Now booking Q3 builds — APIs, web apps, AI
+                    </span>
+                  </div>
+                </m.div>
+
+                {/* Headline */}
+                <div className="mt-6 max-w-3xl">
+                  <BlurTextC
+                    as="h1"
+                    text="Self-taught. Still learning. Shipping anyway."
+                    className="hero-headline text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading italic text-white leading-[0.85] tracking-[-3px]"
+                  />
+                  {/* Hidden semantic context for screen readers + AI engines */}
+                  <span className="sr-only">
+                    Prince Kumar — founder of M2H Web Solution, a full-stack web development studio based in India. I design, build, and ship production web apps, REST APIs, and AI-integrated tools end-to-end.
+                  </span>
+                </div>
+
+                {/* Subheading */}
+                <m.p
+                  {...fade(0.8)}
+                  className="mt-5 text-sm md:text-base text-white max-w-2xl font-body font-light leading-snug px-2"
+                >
+                  In short, I'm Prince Kumar — founder of{" "}
+                  <span className="font-heading italic text-white text-lg md:text-xl">
+                    M2H Web Solution
+                  </span>
+                  . I design, build, and ship full-stack web apps, APIs, and AI tools end-to-end.
+                  No team, no shortcuts — just real products for real clients.
+                </m.p>
+
+                {/* Byline + freshness — visible E-E-A-T signals */}
+                <m.div
+                  {...fade(0.95)}
+                  className="mt-4 flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs font-body text-white/60"
+                >
+                  <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
+                    By
+                    <a
+                      rel="author"
+                      href="https://m2hio.in/"
+                      className="text-white/90 font-medium hover:text-white transition-colors"
+                    >
+                      Prince Kumar
+                    </a>
+                  </span>
+                  <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
+                    Updated
+                    <time dateTime="2026-05-27" itemProp="dateModified">May 2026</time>
+                  </span>
+                  <span className="liquid-glass rounded-full px-3 py-1 inline-flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+                    4+ years shipping production code
+                  </span>
+                </m.div>
+
+                {/* CTAs */}
+                <m.div
+                  {...fade(1.1)}
+                  className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 mt-7"
+                >
+                  <window.LiquidHover
+                    as="a"
+                    href="#work"
+                    tight
+                    className="liquid-glass-strong tap-44 rounded-full px-5 py-3 text-sm font-medium text-white inline-flex items-center gap-2"
+                  >
+                    See My Work
+                    <HArrow size={20} />
+                  </window.LiquidHover>
+                  <a
+                    href="https://m2hio.in"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="tap-44 px-2 text-sm text-white inline-flex items-center gap-2 font-medium hover:opacity-80 transition-opacity"
+                  >
+                    Visit M2H
+                    <HPlay size={16} />
+                  </a>
+                </m.div>
+
+                {/* Stats row */}
+                <m.div
+                  {...fade(1.3)}
+                  className="grid grid-cols-3 gap-2 sm:gap-4 mt-10 w-full max-w-2xl"
+                >
+                  <StatCard
+                    iconPath={
+                      <>
+                        <circle cx="12" cy="12" r="9" />
+                        <polyline points="12 7 12 12 15 14" />
+                      </>
+                    }
+                    value="4+"
+                    label="Years shipping"
+                    fullLabel="Years Shipping Production Code"
+                  />
+                  <StatCard
+                    iconPath={
+                      <>
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M3 12h18" />
+                        <path d="M12 3a14 14 0 0 1 0 18" />
+                        <path d="M12 3a14 14 0 0 0 0 18" />
+                      </>
+                    }
+                    value="9+"
+                    label="Languages"
+                    fullLabel="Languages I Build With"
+                  />
+                  <StatCard
+                    iconPath={
+                      <>
+                        <path d="M3 17 9 11l4 4 8-8" />
+                        <path d="M14 7h7v7" />
+                      </>
+                    }
+                    value="20+"
+                    label="Projects shipped"
+                    fullLabel="Projects Shipped to Real Users"
+                  />
+                </m.div>
+              </div>
+
+              {/* Partner ribbon — pinned bottom of hero */}
+              <m.div
+                {...fade(1.4)}
+                className="flex flex-col items-center gap-3 sm:gap-4 pb-6 sm:pb-8 px-4"
+              >
+                <div className="liquid-glass rounded-full px-3 py-1 text-[10.5px] sm:text-xs font-medium text-white text-center">
+                  Building with the modern web's most reliable tooling
+                </div>
+                <div className="w-full max-w-5xl overflow-hidden mask-fade">
+                  <div className="marquee-track flex items-center gap-8 sm:gap-12 md:gap-16 whitespace-nowrap will-change-transform">
+                    {[
+                      "React", "Next.js", "Node", "Hono", "MongoDB",
+                      "Postgres", "Cloudflare", "TypeScript", "Python", "Go",
+                      "React", "Next.js", "Node", "Hono", "MongoDB",
+                      "Postgres", "Cloudflare", "TypeScript", "Python", "Go",
+                    ].map((n, i) => (
+                      <span
+                        key={`${n}-${i}`}
+                        className="font-heading italic text-white text-lg sm:text-2xl md:text-3xl tracking-tight"
+                      >
+                        {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </m.div>
+            </div>
+          </section>
+        );
+      }
+
+      function StatCard({ iconPath, value, label, fullLabel }) {
+        return (
+          <window.LiquidHover className="liquid-glass p-3 sm:p-5 rounded-[1rem] sm:rounded-[1.25rem] flex flex-col">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white sm:hidden"
+            >
+              {iconPath}
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="text-white hidden sm:block"
+            >
+              {iconPath}
+            </svg>
+            <div className="mt-2 sm:mt-3 text-left">
+              <div className="font-heading italic text-white text-[1.7rem] sm:text-4xl tracking-[-1px] leading-none">
+                {value}
+              </div>
+              <div className="text-[10px] sm:text-xs text-white font-body font-light mt-1.5 sm:mt-2 leading-snug">
+                <span className="sm:hidden">{label}</span>
+                <span className="hidden sm:inline">{fullLabel || label}</span>
+              </div>
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      window.Hero = Hero;
+    </script>
+
+
+    <!-- ─────────────────── Capabilities ─────────────────── -->
+    <script type="text/babel">
+      function Capabilities() {
+        const FadingVideoC = window.FadingVideo;
+
+        const cards = [
+          {
+            iconPath:
+              "M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h14q.825 0 1.413.588T21 5v14q0 .825-.587 1.413T19 21H5Zm1-4h12l-3.75-5-3 4L9 13l-3 4Z",
+            tags: ["Full-Stack", "End-to-End", "Production-Ready", "Solo Built"],
+            title: "Web Apps That Ship",
+            body: "I design, build, and deploy complete products — frontend, backend, infra, the lot. From client dashboards to live restaurants serving real orders.",
+          },
+          {
+            iconPath:
+              "M4 6.47 5.76 10H20v8H4V6.47M22 4h-4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.89-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4Z",
+            tags: ["REST", "Edge-First", "Hono.js", "Cloudflare"],
+            title: "APIs Built to Scale",
+            body: "Type-safe APIs running on Cloudflare Workers, Node, or Go. Auth, rate limiting, and clean docs included — no Postman screenshots required.",
+          },
+          {
+            iconPath:
+              "M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1Zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7Z",
+            tags: ["LLMs", "Bots", "Workflow", "Automation"],
+            title: "AI & Automation Tools",
+            body: "LLM-powered tools, Telegram bots, and pipelines that quietly run in the background and replace hours of busywork with one webhook.",
+          },
+        ];
+
+        return (
+          <section
+            id="capabilities"
+            className="relative min-h-screen w-full overflow-hidden bg-black"
+          >
+            <FadingVideoC
+              src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4"
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            />
+
+            <div className="relative z-10 px-5 sm:px-8 md:px-16 lg:px-20 pt-24 pb-16 flex flex-col min-h-screen">
+              <div className="mb-auto">
+                <div className="text-[10.5px] sm:text-sm font-body text-white/70 tracking-widest uppercase mb-3 sm:mb-6">
+                  <span className="text-white/30">//</span> What I Do
+                </div>
+                <h2 className="font-heading italic text-white text-[2.4rem] sm:text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px] sm:tracking-[-3px]">
+                  Engineering,
+                  <br />
+                  <span className="text-white/70">end to end.</span>
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-12 sm:mt-16">
+                {cards.map((c, i) => (
+                  <window.Reveal delay={Math.min(i + 1, 3)} key={c.title}>
+                    <CapabilityCard {...c} />
+                  </window.Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function CapabilityCard({ iconPath, tags, title, body }) {
+        return (
+          <window.LiquidHover className="liquid-glass rounded-[1.25rem] p-5 sm:p-6 min-h-[300px] sm:min-h-[360px] flex flex-col h-full">
+            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-4">
+              <div className="liquid-glass rounded-[0.75rem] w-11 h-11 flex items-center justify-center shrink-0">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="text-white h-6 w-6"
+                >
+                  <path d={iconPath} />
+                </svg>
+              </div>
+              <div className="flex flex-wrap sm:justify-end gap-1.5 sm:max-w-[70%]">
+                {tags.map((t) => (
+                  <span
+                    key={t}
+                    className="liquid-glass rounded-full px-2.5 py-1 text-[10.5px] sm:text-[11px] text-white/90 font-body whitespace-nowrap"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-1" />
+
+            <div className="mt-5 sm:mt-6">
+              <h3 className="font-heading italic text-white text-[1.75rem] sm:text-3xl md:text-4xl tracking-[-1px] leading-[0.95]">
+                {title}
+              </h3>
+              <p className="mt-2.5 sm:mt-3 text-[13.5px] sm:text-sm text-white/90 font-body font-light leading-snug max-w-[34ch]">
+                {body}
+              </p>
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      window.Capabilities = Capabilities;
+    </script>
+
+    <!-- ─────────────────── Tech Stack ─────────────────── -->
+    <script type="text/babel">
+      const SectionHeader = ({ kicker, line1, line2, blurb }) => (
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-5 md:gap-6 mb-10 sm:mb-14 md:mb-16">
+          <div className="flex-1">
+            <window.Reveal>
+              <div className="text-[10.5px] sm:text-sm font-body text-white/60 tracking-widest uppercase mb-3 sm:mb-6">
+                <span className="text-white/30">//</span> {kicker}
+              </div>
+            </window.Reveal>
+            <window.Reveal delay={1}>
+              <h2 className="font-heading italic text-white text-[2.4rem] sm:text-6xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-[-2px] sm:tracking-[-3px]">
+                {line1}
+                <br />
+                <span className="text-white/70">{line2}</span>
+              </h2>
+            </window.Reveal>
+          </div>
+          {blurb && (
+            <window.Reveal delay={2}>
+              <p className="text-white/75 max-w-md font-body font-light leading-snug text-[13.5px] sm:text-base">
+                {blurb}
+              </p>
+            </window.Reveal>
+          )}
+        </div>
+      );
+      window.SectionHeader = SectionHeader;
+
+      // Animated progress bar (fills when in view)
+      function AnimatedBar({ pct }) {
+        const ref = React.useRef(null);
+        const [shown, setShown] = React.useState(false);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          const obs = new IntersectionObserver(
+            ([e]) => {
+              if (e.isIntersecting) {
+                setShown(true);
+                obs.disconnect();
+              }
+            },
+            { threshold: 0.4 }
+          );
+          obs.observe(el);
+          return () => obs.disconnect();
+        }, []);
+        return (
+          <div ref={ref} className="h-[3px] bg-white/[0.06] rounded-full overflow-hidden">
+            <div
+              className="h-full rounded-full"
+              style={{
+                width: shown ? `${pct}%` : "0%",
+                transition: "width 1100ms cubic-bezier(.2,.7,.2,1)",
+                background:
+                  "linear-gradient(90deg, rgba(167,139,250,0.95), rgba(249,115,22,0.85))",
+              }}
+            />
+          </div>
+        );
+      }
+
+      function TechStack() {
+        const groups = [
+          {
+            label: "Languages",
+            count: "9 langs",
+            items: [
+              { name: "Python", level: 5, note: "Bots · Flask · Scraping · APIs" },
+              { name: "JavaScript", level: 5, note: "Node · Workers · DOM · APIs" },
+              { name: "PHP", level: 5, note: "REST · cURL · cPanel hosting" },
+              { name: "TypeScript", level: 4, note: "Type-safe APIs · Workers" },
+              { name: "Go", level: 4, note: "High-perf APIs · CLIs" },
+              { name: "Bash", level: 4, note: "Termux · Server automation" },
+              { name: "C / C++", level: 3, note: "Low-level · Reverse eng." },
+              { name: "Ruby", level: 3, note: "Sinatra · Scripting" },
+            ],
+          },
+          {
+            label: "Frontend",
+            count: "7 tools",
+            items: [
+              { name: "React", level: 4, note: "SPA · State · Hooks" },
+              { name: "Next.js", level: 4, note: "App Router · SSR · Full-stack" },
+              { name: "Tailwind", level: 4, note: "Utility-first · Dark UIs" },
+              { name: "Vite", level: 4, note: "Fast dev · Bundling" },
+              { name: "Vue.js", level: 3, note: "Reactive UIs · Composition" },
+              { name: "Svelte", level: 3, note: "Compiler-driven UIs" },
+              { name: "Framer Motion", level: 3, note: "Motion · Page transitions" },
+            ],
+          },
+          {
+            label: "Backend & Edge",
+            count: "6 runtimes",
+            items: [
+              { name: "Node.js", level: 5, note: "REST · WebSockets · Auth" },
+              { name: "Hono.js", level: 4, note: "Edge-first APIs" },
+              { name: "Express", level: 4, note: "Classic Node servers" },
+              { name: "Flask", level: 4, note: "Python REST APIs" },
+              { name: "Gin (Go)", level: 3, note: "High-perf Go APIs" },
+              { name: "CF Workers", level: 4, note: "Globally-distributed APIs" },
+            ],
+          },
+          {
+            label: "Data & Infra",
+            count: "8 tools",
+            items: [
+              { name: "MongoDB", level: 4, note: "Document stores · Aggregations" },
+              { name: "PostgreSQL", level: 4, note: "Relational · Indexing" },
+              { name: "MySQL", level: 4, note: "Transactional workloads" },
+              { name: "Redis", level: 3, note: "Cache · Pub/sub" },
+              { name: "Firebase", level: 4, note: "Auth · Firestore · Hosting" },
+              { name: "Cloudflare", level: 4, note: "DNS · Workers · R2 · KV" },
+              { name: "Docker", level: 3, note: "Containerization" },
+              { name: "Linux / Nginx", level: 4, note: "Reverse proxy · TLS" },
+            ],
+          },
+        ];
+
+        const [active, setActive] = React.useState("All");
+        const tabs = ["All", ...groups.map((g) => g.label)];
+        const visible = active === "All" ? groups : groups.filter((g) => g.label === active);
+
+        // Highlights row — proudest tools
+        const highlights = [
+          { name: "Python", level: 5 },
+          { name: "JavaScript", level: 5 },
+          { name: "Node.js", level: 5 },
+          { name: "PHP", level: 5 },
+          { name: "Cloudflare", level: 4 },
+          { name: "MongoDB", level: 4 },
+        ];
+
+        return (
+          <section
+            id="stack"
+            className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
+          >
+            <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
+
+            <div className="relative z-10">
+              <SectionHeader
+                kicker="The Stack"
+                line1="Tools I trust,"
+                line2="picked for the job."
+                blurb="Four years of building production systems means I pick boring tech where it matters and reach for the new stuff only when it earns its place."
+              />
+
+              {/* Highlights ribbon */}
+              <window.Reveal>
+                <div className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] p-3 sm:p-5 mb-6 sm:mb-10">
+                  <div className="flex items-center justify-between gap-4 mb-3 sm:mb-4">
+                    <div className="text-[10px] sm:text-[11px] text-white/55 font-body uppercase tracking-widest">
+                      Most used · daily drivers
+                    </div>
+                    <div className="hidden sm:flex items-center gap-1.5 text-[11px] text-white/50 font-body">
+                      <span className="w-1.5 h-1.5 rounded-full bg-violet-400" />
+                      Beginner
+                      <span className="w-1.5 h-1.5 rounded-full bg-orange-400 ml-2" />
+                      Expert
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                    {highlights.map((h) => (
+                      <span
+                        key={h.name}
+                        className="liquid-glass rounded-full px-2.5 sm:px-3 py-1 sm:py-1.5 text-[11px] sm:text-xs text-white/95 font-body inline-flex items-center gap-2 whitespace-nowrap"
+                      >
+                        {h.name}
+                        <span className="flex items-center gap-0.5">
+                          {Array.from({ length: 5 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className="w-1 h-1 rounded-full"
+                              style={{
+                                background:
+                                  i < h.level
+                                    ? "rgba(249,115,22,0.9)"
+                                    : "rgba(255,255,255,0.15)",
+                              }}
+                            />
+                          ))}
+                        </span>
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </window.Reveal>
+
+              {/* Category tabs */}
+              <window.Reveal delay={1}>
+                <div className="mb-8 sm:mb-10 -mx-5 px-5 sm:mx-0 sm:px-0 h-scroll h-scroll-mask overflow-x-auto">
+                  <div className="liquid-glass rounded-full p-1 inline-flex gap-1 whitespace-nowrap">
+                    {tabs.map((t) => (
+                      <window.LiquidHover
+                        as="button"
+                        tight
+                        key={t}
+                        onClick={() => setActive(t)}
+                        className={`tap-44 rounded-full px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-medium font-body whitespace-nowrap transition-colors ${
+                          active === t
+                            ? "bg-white text-black"
+                            : "text-white/80 hover:text-white"
+                        }`}
+                      >
+                        {t}
+                      </window.LiquidHover>
+                    ))}
+                  </div>
+                </div>
+              </window.Reveal>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                {visible.map((g, i) => (
+                  <window.Reveal delay={Math.min(i + 1, 4)} key={g.label}>
+                    <StackGroup {...g} />
+                  </window.Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      function StackGroup({ label, count, items }) {
+        return (
+          <window.LiquidHover className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] p-4 sm:p-7 md:p-8 h-full">
+            <div className="flex items-center justify-between mb-4 sm:mb-6 gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+                <span className="liquid-glass rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[10px] sm:text-[11px] font-body text-white/80 font-medium shrink-0">
+                  {String(items.length).padStart(2, "0")}
+                </span>
+                <h3 className="font-heading italic text-white text-xl sm:text-3xl md:text-[2.25rem] tracking-[-1px] leading-none truncate">
+                  {label}
+                </h3>
+              </div>
+              <span className="text-[10px] sm:text-[11px] text-white/55 font-body uppercase tracking-widest shrink-0">
+                {count}
+              </span>
+            </div>
+            <div className="space-y-3 sm:space-y-3.5">
+              {items.map((it) => (
+                <SkillRow key={it.name} {...it} />
+              ))}
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      function SkillRow({ name, level, note }) {
+        const pct = (level / 5) * 100;
+        return (
+          <div>
+            <div className="flex items-baseline justify-between gap-3 mb-1.5">
+              <div className="flex items-baseline gap-2 min-w-0 flex-1">
+                <span className="text-sm font-body font-medium text-white truncate">
+                  {name}
+                </span>
+                <span className="hidden sm:inline text-[11px] text-white/45 font-body font-light truncate">
+                  {note}
+                </span>
+              </div>
+              <span className="text-[11px] text-white/55 font-body tabular-nums shrink-0">
+                {level}/5
+              </span>
+            </div>
+            <AnimatedBar pct={pct} />
+          </div>
+        );
+      }
+
+      window.TechStack = TechStack;
+    </script>
+
+    <!-- ─────────────────── Featured Work ─────────────────── -->
+    <script type="text/babel">
+      const { ArrowUpRight: WArrow, ExternalLink: WLink } = window.Icons;
+
+      // Tiny abstract "browser preview" tile for project cards
+      function BrowserPreview({ accent = "violet", label }) {
+        const colors = {
+          violet: "rgba(167,139,250,0.55)",
+          orange: "rgba(249,115,22,0.55)",
+          emerald: "rgba(52,211,153,0.55)",
+          cyan: "rgba(34,211,238,0.55)",
+          rose: "rgba(244,114,182,0.55)",
+          slate: "rgba(148,163,184,0.55)",
+        };
+        const c = colors[accent] || colors.violet;
+        return (
+          <div className="relative w-full h-28 sm:h-36 rounded-[0.75rem] sm:rounded-[0.9rem] overflow-hidden liquid-glass">
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `radial-gradient(80% 60% at 30% 20%, ${c}, transparent 60%), radial-gradient(60% 50% at 80% 90%, rgba(255,255,255,0.05), transparent 70%)`,
+              }}
+            />
+            {/* Browser chrome */}
+            <div className="absolute top-0 left-0 right-0 h-6 sm:h-7 flex items-center gap-1.5 px-2.5 sm:px-3 border-b border-white/10">
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white/30" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white/20" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white/15" />
+              <span className="ml-1.5 sm:ml-2 text-[9px] sm:text-[10px] font-body text-white/45 truncate">
+                {label}
+              </span>
+            </div>
+            {/* Fake content lines */}
+            <div className="absolute top-9 sm:top-10 left-2.5 sm:left-3 right-2.5 sm:right-3 space-y-1 sm:space-y-1.5">
+              <div className="h-1 sm:h-1.5 w-2/3 rounded-full bg-white/20" />
+              <div className="h-1 sm:h-1.5 w-1/2 rounded-full bg-white/10" />
+              <div className="h-1 sm:h-1.5 w-3/5 rounded-full bg-white/10" />
+            </div>
+            <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 grid grid-cols-3 gap-1 sm:gap-1.5">
+              <div className="h-5 sm:h-6 rounded-md bg-white/[0.04]" />
+              <div className="h-5 sm:h-6 rounded-md bg-white/[0.06]" />
+              <div className="h-5 sm:h-6 rounded-md bg-white/[0.04]" />
+            </div>
+          </div>
+        );
+      }
+
+      // Animated arrow that slides + fades on hover
+      function HoverArrow({ size = 16, label = "Visit" }) {
+        return (
+          <span className="inline-flex items-center gap-1.5 overflow-hidden">
+            {label}
+            <span className="relative inline-block w-4 h-4 overflow-hidden">
+              <WArrow
+                size={size}
+                className="absolute inset-0 transition-transform duration-300 group-hover:translate-x-3 group-hover:-translate-y-3"
+              />
+              <WArrow
+                size={size}
+                className="absolute inset-0 -translate-x-3 translate-y-3 transition-transform duration-300 group-hover:translate-x-0 group-hover:translate-y-0"
+              />
+            </span>
+          </span>
+        );
+      }
+
+      function Work() {
+        const featured = {
+          emoji: "🍽️",
+          tag: "Flagship Build",
+          title: "QR Smart Ordering System",
+          blurb:
+            "A full restaurant management platform serving real customers daily. QR-code table ordering, real-time WebSocket order updates, and an admin dashboard covering menu, orders, pricing, and analytics — zero customer app install required.",
+          stack: ["Node.js", "MongoDB", "WebSockets", "React", "Express"],
+          highlights: [
+            "Live order status sync via WebSockets",
+            "Admin panel — menu, orders, pricing, reports",
+            "Deployed to a real client and serving customers",
+          ],
+          metrics: [
+            { v: "100%", k: "Uptime" },
+            { v: "<200ms", k: "Order latency" },
+            { v: "Live", k: "Production" },
+          ],
+          accent: "orange",
+          href: "https://farresidency.m2hio.in/",
+          display: "farresidency.m2hio.in",
+        };
+
+        const projects = [
+          {
+            emoji: "☁️",
+            title: "TeleCloud",
+            subtitle: "Serverless storage",
+            blurb:
+              "Unlimited file storage powered by the Telegram Bot API. No server costs, no GB caps. Built for devs who hate paying for storage.",
+            stack: ["Telegram API", "Node", "Cloudflare"],
+            accent: "cyan",
+            href: "https://telecloud.m2hio.in/",
+            display: "telecloud.m2hio.in",
+          },
+          {
+            emoji: "🔌",
+            title: "M2H API Playground",
+            subtitle: "Browser-native HTTP client",
+            blurb:
+              "Postman without the bloat or the sign-in wall. All HTTP methods, custom headers, auth tokens, real-time response inspection.",
+            stack: ["Vanilla JS", "Fetch API", "CSS"],
+            accent: "violet",
+            href: "https://m2h-api-playground.vercel.app/",
+            display: "m2h-api-playground.vercel.app",
+          },
+          {
+            emoji: "🔧",
+            title: "MobileRepairXYZ",
+            subtitle: "Repair shop platform",
+            blurb:
+              "End-to-end repair shop platform commissioned by a real client. Service booking, live status tracking, full admin panel.",
+            stack: ["React", "Node", "MongoDB"],
+            accent: "emerald",
+            href: "https://mobilerepairxyz.in/",
+            display: "mobilerepairxyz.in",
+          },
+          {
+            emoji: "💬",
+            title: "PrinceVChat",
+            subtitle: "P2P video calling",
+            blurb:
+              "Real-time peer-to-peer video. No login, no app install, shareable links. WebRTC signaling built from scratch — no SDKs.",
+            stack: ["WebRTC", "TypeScript", "Vite"],
+            accent: "rose",
+            href: "https://chat.m2hio.in/",
+            display: "chat.m2hio.in",
+          },
+          {
+            emoji: "🌐",
+            title: "Personal Portfolio",
+            subtitle: "Developer site",
+            blurb:
+              "Performance-focused developer portfolio with smooth motion design. Showcases all M2H projects, skills, and contact info.",
+            stack: ["React", "Tailwind", "Framer"],
+            accent: "slate",
+            href: "https://m2hio.in",
+            display: "m2hio.in",
+          },
+        ];
+
+        return (
+          <section
+            id="work"
+            className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
+          >
+            <SectionHeader
+              kicker="Featured Work"
+              line1="Real products,"
+              line2="real users."
+              blurb="Six projects I've shipped recently — every one of them designed, coded, and deployed by me. Click through, they're live."
+            />
+
+            <window.Reveal>
+              <FeaturedCard {...featured} />
+            </window.Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mt-6">
+              {projects.map((p, i) => (
+                <window.Reveal delay={Math.min((i % 3) + 1, 3)} key={p.title}>
+                  <ProjectCard {...p} />
+                </window.Reveal>
+              ))}
+            </div>
+          </section>
+        );
+      }
+
+      function FeaturedCard({ emoji, tag, title, blurb, stack, highlights, metrics, accent, href, display }) {
+        return (
+          <window.LiquidHover
+            as="a"
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="liquid-glass grad-border rounded-[1.25rem] sm:rounded-[1.5rem] p-5 sm:p-8 md:p-10 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 sm:gap-8 group"
+          >
+            <div className="flex flex-col">
+              <div className="flex items-center gap-2 mb-4 sm:mb-6 flex-wrap">
+                <span className="liquid-glass rounded-full px-2.5 sm:px-3 py-1 text-[10.5px] sm:text-[11px] text-white/90 font-body inline-flex items-center gap-1.5">
+                  Live
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+                </span>
+                <span className="liquid-glass rounded-full px-2.5 sm:px-3 py-1 text-[10.5px] sm:text-[11px] text-white/90 font-body">
+                  {tag}
+                </span>
+              </div>
+
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="liquid-glass rounded-[0.9rem] w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center text-2xl sm:text-4xl shrink-0">
+                  <span>{emoji}</span>
+                </div>
+                <h3 className="font-heading italic text-white text-3xl sm:text-5xl md:text-6xl tracking-[-2px] leading-[0.9]">
+                  {title}
+                </h3>
+              </div>
+
+              <p className="mt-4 sm:mt-5 text-[13.5px] sm:text-[15px] text-white/85 font-body font-light leading-relaxed max-w-2xl">
+                {blurb}
+              </p>
+
+              {/* Metrics row */}
+              <div className="grid grid-cols-3 gap-2 mt-5 sm:mt-6 sm:max-w-md">
+                {metrics.map((m) => (
+                  <div key={m.k} className="liquid-glass rounded-xl sm:rounded-2xl p-2.5 sm:p-4 text-left">
+                    <div className="font-heading italic text-white text-base sm:text-2xl tracking-[-1px] leading-none break-anywhere">
+                      {m.v}
+                    </div>
+                    <div className="text-[9px] sm:text-[11px] text-white/60 font-body mt-1 sm:mt-1.5 uppercase tracking-widest break-anywhere leading-tight">
+                      {m.k}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap gap-1.5 mt-5 sm:mt-6">
+                {stack.map((s) => (
+                  <span
+                    key={s}
+                    className="liquid-glass rounded-full px-2.5 sm:px-3 py-1 text-[10.5px] sm:text-[11px] text-white/90 font-body whitespace-nowrap"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="lg:border-l lg:border-white/10 lg:pl-8 flex flex-col justify-between gap-5 sm:gap-6">
+              <BrowserPreview accent={accent} label={display} />
+              <ul className="space-y-3">
+                {highlights.map((h, i) => (
+                  <li
+                    key={h}
+                    className="flex gap-3 text-[13px] sm:text-sm text-white/85 font-body font-light leading-snug"
+                  >
+                    <span className="liquid-glass rounded-full w-6 h-6 shrink-0 flex items-center justify-center text-[10px] text-white/80 font-body">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="flex items-center justify-between pt-4 sm:pt-5 border-t border-white/10 gap-3">
+                <span className="text-[11px] sm:text-xs text-white/60 font-body truncate min-w-0">
+                  {display}
+                </span>
+                <span className="text-sm text-white font-medium shrink-0">
+                  <HoverArrow />
+                </span>
+              </div>
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      function ProjectCard({ emoji, title, subtitle, blurb, stack, accent, href, display }) {
+        return (
+          <window.LiquidHover
+            as="a"
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="liquid-glass grad-border rounded-[1rem] sm:rounded-[1.25rem] p-4 sm:p-6 flex flex-col group transition-transform duration-300 hover:-translate-y-1 h-full"
+          >
+            <BrowserPreview accent={accent} label={display} />
+
+            <div className="flex items-start justify-between gap-3 mt-4 sm:mt-5">
+              <div className="liquid-glass rounded-[0.75rem] w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center text-xl sm:text-2xl shrink-0">
+                <span>{emoji}</span>
+              </div>
+              <span className="liquid-glass rounded-full px-2.5 sm:px-3 py-1 text-[10.5px] sm:text-[11px] text-white/90 font-body inline-flex items-center gap-1.5">
+                Live
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot" />
+              </span>
+            </div>
+
+            <h3 className="mt-3 sm:mt-4 font-heading italic text-white text-[1.6rem] sm:text-[2rem] md:text-[2.25rem] tracking-[-1px] leading-[0.95]">
+              {title}
+            </h3>
+            <div className="mt-1 text-[10.5px] sm:text-[11px] text-white/55 font-body uppercase tracking-widest">
+              {subtitle}
+            </div>
+            <p className="mt-2.5 sm:mt-3 text-[13px] sm:text-sm text-white/85 font-body font-light leading-snug">
+              {blurb}
+            </p>
+
+            <div className="flex-1" />
+
+            <div className="flex flex-wrap gap-1.5 mt-4 sm:mt-5">
+              {stack.map((s) => (
+                <span
+                  key={s}
+                  className="liquid-glass rounded-full px-2.5 py-1 text-[10px] sm:text-[10.5px] text-white/85 font-body whitespace-nowrap"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/10 flex items-center justify-between text-[11px] sm:text-xs text-white/70 font-body gap-3">
+              <span className="truncate min-w-0">{display}</span>
+              <span className="text-white/95 group-hover:text-white shrink-0">
+                <HoverArrow size={14} />
+              </span>
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      window.Work = Work;
+    </script>
+
+    <!-- ─────────────────── Services ─────────────────── -->
+    <script type="text/babel">
+      function Services() {
+        const services = [
+          {
+            iconPath: <><path d="M3 7h18M3 12h18M3 17h12" /></>,
+            title: "Web App Development",
+            body: "Full-stack apps from design to deployment. React, Next.js, Node.js — built end-to-end with production architecture.",
+            tags: ["React", "Next.js", "Node"],
+            tone: "violet",
+          },
+          {
+            iconPath: <><path d="M16 18 22 12 16 6"/><path d="M8 6 2 12 8 18"/></>,
+            title: "API Design & Development",
+            body: "RESTful, GraphQL, and microservices. Type-safe, well-documented, and built to scale on the edge.",
+            tags: ["REST", "GraphQL", "Edge"],
+            tone: "orange",
+          },
+          {
+            iconPath: <><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/></>,
+            title: "AI & Automation",
+            body: "LLM integrations, Telegram bots, and workflow pipelines that take repetitive busywork off your plate.",
+            tags: ["LLM", "Bots", "Pipelines"],
+            tone: "violet",
+          },
+          {
+            iconPath: <><path d="M18 10a6 6 0 0 0-12 0c0 1 .2 2 .5 3H4a3 3 0 0 0 0 6h14a3 3 0 0 0 .5-6"/></>,
+            title: "Edge & Cloud Deploy",
+            body: "Cloudflare Workers, Vercel, Docker, and CI/CD. Fast, cheap, globally distributed by default.",
+            tags: ["Cloudflare", "Vercel", "Docker"],
+            tone: "orange",
+          },
+          {
+            iconPath: <><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></>,
+            title: "Auth & Security",
+            body: "JWT, OAuth 2.0, session-based auth, and secure backend architecture done right the first time.",
+            tags: ["JWT", "OAuth", "RBAC"],
+            tone: "violet",
+          },
+          {
+            iconPath: <><circle cx="12" cy="12" r="9"/><path d="M9 9 3 9M9 15l-6 0M21 9l-6 0M21 15l-6 0M12 3v6M12 21v-6"/></>,
+            title: "Open Source Collab",
+            body: "Feature additions, bug fixes, and documentation improvements. Always happy to contribute upstream.",
+            tags: ["OSS", "Docs", "Reviews"],
+            tone: "orange",
+          },
+        ];
+
+        const steps = [
+          { n: "01", t: "Discovery call", d: "Free 30-min chat to understand what you're building and the constraints." },
+          { n: "02", t: "Scope & quote", d: "A short doc with the plan, timeline, and a fixed-fee quote — no surprises." },
+          { n: "03", t: "Build & ship", d: "I build in public to a staging URL with weekly demos and quick feedback loops." },
+          { n: "04", t: "Handoff & support", d: "Production deploy, full docs, and 30 days of free post-launch support." },
+        ];
+
+        return (
+          <section
+            id="services"
+            className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
+          >
+            <SectionHeader
+              kicker="Services"
+              line1="What I build"
+              line2="for clients."
+              blurb="Currently accepting freelance projects and collaborations. Email is the fastest way to reach me — I reply to everyone."
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+              {services.map((s, i) => (
+                <window.Reveal delay={Math.min((i % 3) + 1, 3)} key={s.title}>
+                  <ServiceCard index={i} {...s} />
+                </window.Reveal>
+              ))}
+            </div>
+
+            {/* Process strip */}
+            <window.Reveal>
+              <div className="mt-12 sm:mt-16 relative liquid-glass rounded-[1.25rem] sm:rounded-[1.5rem] p-5 sm:p-8 md:p-10 overflow-hidden">
+                {/* Soft accent */}
+                <div
+                  className="pointer-events-none absolute -right-24 -top-24 w-72 h-72 rounded-full opacity-40"
+                  style={{
+                    background:
+                      "radial-gradient(closest-side, rgba(167,139,250,0.40), transparent 70%)",
+                  }}
+                />
+
+                <div className="flex items-center justify-between mb-6 sm:mb-10 flex-wrap gap-3 relative">
+                  <div className="text-xs sm:text-sm text-white/60 font-body uppercase tracking-widest">
+                    <span className="text-white/30">//</span> How we'd work together
+                  </div>
+                  <span className="liquid-glass rounded-full px-3 py-1 text-[11px] text-white/85 font-body">
+                    4 step process
+                  </span>
+                </div>
+
+                {/* Connecting rail */}
+                <div className="hidden lg:block absolute left-10 right-10 top-[calc(50%+8px)] h-px bg-white/10" />
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 relative">
+                  {steps.map((s, i) => (
+                    <div key={s.n} className="flex flex-col relative">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="liquid-glass rounded-full w-9 h-9 flex items-center justify-center text-[11px] font-body text-white/85 font-medium">
+                          {s.n}
+                        </span>
+                        {i < steps.length - 1 && (
+                          <div className="hidden lg:flex items-center text-white/30">
+                            <span className="text-xs">→</span>
+                          </div>
+                        )}
+                      </div>
+                      <h4 className="text-base font-medium text-white font-body">{s.t}</h4>
+                      <p className="mt-1.5 text-[12.5px] text-white/70 font-body font-light leading-snug">
+                        {s.d}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Trust strip */}
+                <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 text-xs sm:text-[13px] font-body">
+                  <div className="flex items-center gap-2 text-white/85">
+                    <span className="liquid-glass rounded-full w-7 h-7 flex items-center justify-center shrink-0">
+                      <window.Icons.Sparkle size={14} />
+                    </span>
+                    <span>Fixed-fee · Weekly demos · 30 days post-launch support</span>
+                  </div>
+                  <window.LiquidHover
+                    as="a"
+                    tight
+                    href="mailto:m2hgamerz.prince@gmail.com"
+                    className="liquid-glass-strong shimmer-on-hover tap-44 rounded-full px-4 py-2.5 text-[13px] font-medium text-white inline-flex items-center justify-center gap-2"
+                  >
+                    Start a project
+                    <window.Icons.ArrowUpRight size={14} />
+                  </window.LiquidHover>
+                </div>
+              </div>
+            </window.Reveal>
+          </section>
+        );
+      }
+
+      function ServiceCard({ index, iconPath, title, body, tags, tone = "violet" }) {
+        const num = String(index + 1).padStart(2, "0");
+        const glow =
+          tone === "orange"
+            ? "rgba(249,115,22,0.35)"
+            : "rgba(167,139,250,0.45)";
+
+        return (
+          <window.LiquidHover className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] p-4 sm:p-6 flex flex-col h-full group">
+            <div className="flex items-start justify-between gap-3">
+              <div className="relative shrink-0">
+                {/* Glow halo behind icon */}
+                <div
+                  className="absolute inset-0 rounded-full blur-xl opacity-50 group-hover:opacity-90 transition-opacity duration-500"
+                  style={{ background: glow }}
+                />
+                <div className="relative liquid-glass rounded-[0.75rem] w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20" height="20"
+                    viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor"
+                    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+                    className="text-white transition-transform duration-500 group-hover:rotate-[-6deg] group-hover:scale-110 sm:w-[22px] sm:h-[22px]"
+                  >
+                    {iconPath}
+                  </svg>
+                </div>
+              </div>
+              <span className="font-heading italic text-white/35 text-xl sm:text-2xl tracking-tight leading-none mt-1 group-hover:text-white/60 transition-colors">
+                {num}
+              </span>
+            </div>
+
+            <h3 className="mt-5 sm:mt-6 font-heading italic text-white text-[1.6rem] sm:text-[2rem] tracking-[-1px] leading-[0.95]">
+              {title}
+            </h3>
+            <p className="mt-2.5 sm:mt-3 text-[13px] sm:text-sm text-white/85 font-body font-light leading-snug max-w-[34ch]">
+              {body}
+            </p>
+
+            <div className="flex-1" />
+
+            <div className="flex flex-wrap gap-1.5 mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-white/10">
+              {tags.map((t) => (
+                <span
+                  key={t}
+                  className="liquid-glass rounded-full px-2.5 py-1 text-[10px] sm:text-[10.5px] text-white/85 font-body whitespace-nowrap"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+          </window.LiquidHover>
+        );
+      }
+
+      window.Services = Services;
+    </script>
+
+    <!-- ─────────────────── FAQ (LLM-citable Q&A) ─────────────────── -->
+    <script type="text/babel">
+      function FAQ() {
+        const items = [
+          {
+            q: "Who is Prince Kumar?",
+            a: "Prince Kumar is a self-taught full-stack engineer based in India and the founder of M2H Web Solution. He designs, builds, and ships production web applications, REST APIs, and AI-integrated tools end-to-end — without a team, without shortcuts.",
+          },
+          {
+            q: "What is M2H Web Solution?",
+            a: "M2H Web Solution is a one-person full-stack product studio founded by Prince Kumar. The studio builds web apps, edge-deployed APIs, AI tooling, and automation pipelines for clients across India and globally. Live work includes a QR-based restaurant ordering system, a serverless storage platform (TeleCloud), a browser-native API testing tool, and a peer-to-peer video chat product.",
+          },
+          {
+            q: "What technologies does Prince work with?",
+            a: "Prince works in 9+ programming languages with daily-driver expertise in Python, JavaScript, TypeScript, PHP, and Go. On the frontend he uses React, Next.js, Tailwind CSS, and Framer Motion. On the backend he builds with Node.js, Hono.js, Express, Flask, and Cloudflare Workers, backed by MongoDB, PostgreSQL, MySQL, and Firebase.",
+          },
+          {
+            q: "Is Prince available for freelance projects?",
+            a: "Yes. Prince is currently accepting freelance and consulting work for full-stack web apps, REST/GraphQL APIs, AI integrations, edge deployments, and authentication systems. Replies are sent within 24 hours via email at m2hgamerz.prince@gmail.com.",
+          },
+          {
+            q: "How does Prince charge for projects?",
+            a: "Every engagement starts with a free 30-minute discovery call, followed by a fixed-fee quote with a defined scope and timeline. Build progress is shared on a staging URL with weekly demos. The fee covers production deployment, full handover documentation, and 30 days of post-launch support.",
+          },
+          {
+            q: "How do I contact Prince Kumar?",
+            a: "The fastest way to reach Prince is email at m2hgamerz.prince@gmail.com. He also responds on LinkedIn (linkedin.com/in/prince-kumar-m2h), Twitter / X (@m2hgamerz), and through the contact form on m2hio.in.",
+          },
+        ];
+
+        return (
+          <section
+            id="faq"
+            className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
+            itemScope
+            itemType="https://schema.org/FAQPage"
+          >
+            <window.SectionHeader
+              kicker="Frequently Asked"
+              line1="Quick answers"
+              line2="before we talk."
+              blurb="Everything most people email about, answered up front. Want something more specific? The contact section is right below."
+            />
+
+            <div className="max-w-4xl mx-auto grid gap-3 sm:gap-4">
+              {items.map((it, i) => (
+                <window.Reveal delay={Math.min(i + 1, 4)} key={it.q}>
+                  <FAQItem {...it} index={i} />
+                </window.Reveal>
+              ))}
+            </div>
+          </section>
+        );
+      }
+
+      function FAQItem({ q, a, index }) {
+        const num = String(index + 1).padStart(2, "0");
+        return (
+          <details
+            className="liquid-glass rounded-[1rem] sm:rounded-[1.25rem] group overflow-hidden"
+            itemScope
+            itemProp="mainEntity"
+            itemType="https://schema.org/Question"
+          >
+            <summary className="cursor-pointer list-none p-4 sm:p-5 flex items-start gap-3 sm:gap-4 select-none">
+              <span className="liquid-glass rounded-full w-8 h-8 sm:w-9 sm:h-9 flex items-center justify-center text-[10px] sm:text-[11px] font-body text-white/85 font-medium shrink-0">
+                {num}
+              </span>
+              <h3
+                itemProp="name"
+                className="flex-1 font-body text-white text-[15px] sm:text-base font-medium leading-snug pt-1"
+              >
+                {q}
+              </h3>
+              <span className="liquid-glass rounded-full w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 transition-transform duration-300 group-open:rotate-45">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-white/85"
+                >
+                  <path d="M12 5v14" />
+                  <path d="M5 12h14" />
+                </svg>
+              </span>
+            </summary>
+            <div
+              className="px-4 sm:px-5 pb-4 sm:pb-5 pl-[60px] sm:pl-[72px] -mt-1"
+              itemScope
+              itemProp="acceptedAnswer"
+              itemType="https://schema.org/Answer"
+            >
+              <p
+                itemProp="text"
+                className="text-[13.5px] sm:text-sm text-white/80 font-body font-light leading-relaxed"
+              >
+                {a}
+              </p>
+            </div>
+          </details>
+        );
+      }
+
+      window.FAQ = FAQ;
+    </script>
+
+    <!-- ─────────────────── Connect ─────────────────── -->
+    <script type="text/babel">
+      const C = window.Icons;
+
+      function CopyButton({ text, label }) {
+        const [copied, setCopied] = React.useState(false);
+        const onClick = async (e) => {
+          e.preventDefault();
+          try {
+            await navigator.clipboard.writeText(text);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1600);
+          } catch {
+            // Fallback for environments without clipboard
+            window.location.href = `mailto:${text}`;
+          }
+        };
+
+        return (
+          <window.LiquidHover
+            as="button"
+            tight
+            onClick={onClick}
+            className="liquid-glass tap-44 rounded-full px-4 py-3 sm:py-2.5 text-[13px] sm:text-sm font-medium text-white inline-flex items-center justify-center gap-2 relative shrink-0"
+            aria-label={`Copy ${label}`}
+          >
+            {copied ? (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                Copied
+              </>
+            ) : (
+              <>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="9" y="9" width="13" height="13" rx="2" />
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                </svg>
+                Copy
+              </>
+            )}
+          </window.LiquidHover>
+        );
+      }
+
+      function Connect() {
+        const email = "m2hgamerz.prince@gmail.com";
+
+        return (
+          <section
+            id="contact"
+            className="relative ambient-bg overflow-hidden py-20 md:py-32 px-5 sm:px-8 md:px-16 lg:px-20"
+          >
+            <window.Reveal>
+              <div className="liquid-glass rounded-[1.25rem] sm:rounded-[2rem] p-5 sm:p-12 md:p-16 lg:p-20 max-w-6xl mx-auto text-center overflow-hidden relative">
+                {/* Aurora background */}
+                <div className="aurora" />
+
+                <div className="relative">
+                  <div className="text-xs sm:text-sm font-body text-white/60 tracking-widest uppercase mb-5 sm:mb-6">
+                    <span className="text-white/30">//</span> Get In Touch
+                  </div>
+                  <h2 className="font-heading italic text-white text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[6.5rem] leading-[0.9] tracking-[-3px]">
+                    Let's build
+                    <br />
+                    <span className="text-white/70">something real.</span>
+                  </h2>
+                  <p className="mt-6 text-white/85 max-w-xl mx-auto font-body font-light leading-snug text-sm md:text-base">
+                    Whether it's a freelance project, a bug worth chasing, or just a hello —
+                    I read every message and reply within a day.
+                  </p>
+
+                  {/* Email card */}
+                  <div className="mt-9 max-w-2xl mx-auto">
+                    <div className="liquid-glass rounded-[1.5rem] sm:rounded-full p-1.5 flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-1">
+                      <window.LiquidHover
+                        as="a"
+                        tight
+                        href={`mailto:${email}`}
+                        className="flex-1 min-w-0 liquid-glass-strong tap-44 rounded-full px-4 sm:px-5 py-3 text-[12.5px] sm:text-sm font-medium text-white inline-flex items-center justify-center sm:justify-start gap-2 break-anywhere overflow-hidden"
+                      >
+                        <C.Mail size={16} className="shrink-0" />
+                        <span className="truncate">{email}</span>
+                      </window.LiquidHover>
+                      <CopyButton text={email} label="email" />
+                    </div>
+                    <p className="mt-3 text-[11px] text-white/45 font-body inline-flex items-center gap-1.5 justify-center w-full flex-wrap">
+                      <kbd className="kbd">Tap</kbd>
+                      to email me, or
+                      <kbd className="kbd">Copy</kbd>
+                      to share.
+                    </p>
+                  </div>
+
+                  {/* Quick links */}
+                  <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                    <SocialPill href="https://m2hio.in" icon={<C.ExternalLink size={16} />} label="m2hio.in" />
+                    <SocialPill href="https://github.com/prince-m2hgamerz" icon={<C.Github size={16} />} label="GitHub" />
+                    <SocialPill href="https://linkedin.com/in/prince-kumar-m2h" icon={<C.Linkedin size={16} />} label="LinkedIn" />
+                    <SocialPill href="https://twitter.com/m2hgamerz" icon={<C.Twitter size={16} />} label="Twitter / X" />
+                    <SocialPill href="https://instagram.com/m2hgamerz" icon={<C.Instagram size={16} />} label="Instagram" />
+                  </div>
+
+                  {/* Availability strip */}
+                  <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-3xl mx-auto">
+                    <AvailItem
+                      dot="emerald"
+                      title="Available"
+                      sub="for freelance"
+                    />
+                    <AvailItem
+                      dot="violet"
+                      title="< 24h"
+                      sub="reply time"
+                    />
+                    <AvailItem
+                      dot="orange"
+                      title="India 🇮🇳"
+                      sub="serving globally"
+                    />
+                  </div>
+                </div>
+              </div>
+            </window.Reveal>
+
+            {/* Footer */}
+            <window.Reveal delay={1}>
+              <footer
+                role="contentinfo"
+                className="max-w-6xl mx-auto mt-12 sm:mt-14 liquid-glass rounded-[1.25rem] p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-5 text-sm text-white/65 font-body"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="liquid-glass rounded-full w-10 h-10 flex items-center justify-center shrink-0">
+                    <span
+                      className="font-heading italic text-xl text-white leading-none"
+                      style={{ marginTop: "-2px" }}
+                    >
+                      p
+                    </span>
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-white font-medium truncate">Prince Kumar</div>
+                    <div className="text-xs truncate">Founder, M2H Web Solution · India 🇮🇳</div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs">
+                  <a href="#home" className="hover:text-white transition-colors">Home</a>
+                  <a href="#work" className="hover:text-white transition-colors">Work</a>
+                  <a href="#services" className="hover:text-white transition-colors">Services</a>
+                  <a href="#stack" className="hover:text-white transition-colors">Stack</a>
+                  <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+                  <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <div className="text-xs text-white/55 md:text-right">
+                  © {new Date().getFullYear()} Prince Kumar
+                  <br />
+                  <span className="font-heading italic text-white/70">Self-taught. Still learning. Shipping anyway.</span>
+                </div>
+              </footer>
+            </window.Reveal>
+          </section>
+        );
+      }
+
+      function AvailItem({ dot, title, sub }) {
+        const c = {
+          emerald: "bg-emerald-400",
+          violet: "bg-violet-400",
+          orange: "bg-orange-400",
+        }[dot];
+        return (
+          <div className="liquid-glass rounded-2xl p-4 flex items-center gap-3 text-left">
+            <span className={`w-2 h-2 rounded-full ${c} pulse-dot shrink-0`} />
+            <div className="min-w-0">
+              <div className="text-white font-body font-medium text-sm truncate">{title}</div>
+              <div className="text-[11px] text-white/55 font-body truncate">{sub}</div>
+            </div>
+          </div>
+        );
+      }
+
+      function SocialPill({ href, icon, label }) {
+        return (
+          <window.LiquidHover
+            as="a"
+            tight
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="liquid-glass tap-44 rounded-full px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-medium text-white inline-flex items-center gap-2"
+          >
+            {icon}
+            {label}
+          </window.LiquidHover>
+        );
+      }
+
+      window.Connect = Connect;
+    </script>
+
+    <!-- ─────────────────── App ─────────────────── -->
+    <script type="text/babel">
+      // Top-of-page scroll progress bar
+      function ScrollProgress() {
+        const ref = React.useRef(null);
+        React.useEffect(() => {
+          const el = ref.current;
+          if (!el) return;
+          let raf = 0;
+          const onScroll = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+              const h = document.documentElement;
+              const total = h.scrollHeight - h.clientHeight;
+              const pct = total > 0 ? (h.scrollTop / total) * 100 : 0;
+              el.style.transform = `scaleX(${pct / 100})`;
+            });
+          };
+          onScroll();
+          window.addEventListener("scroll", onScroll, { passive: true });
+          return () => {
+            cancelAnimationFrame(raf);
+            window.removeEventListener("scroll", onScroll);
+          };
+        }, []);
+        return (
+          <div className="fixed top-0 left-0 right-0 h-[2px] z-[60] pointer-events-none">
+            <div
+              ref={ref}
+              className="h-full origin-left"
+              style={{
+                background:
+                  "linear-gradient(90deg, rgba(167,139,250,0.95), rgba(249,115,22,0.95))",
+                transform: "scaleX(0)",
+                transition: "transform 120ms linear",
+              }}
+            />
+          </div>
+        );
+      }
+
+      function App() {
+        // Add scroll-margin-top so anchored sections land cleanly below the navbar.
+        React.useEffect(() => {
+          const sections = document.querySelectorAll("main section[id]");
+          sections.forEach((s) => {
+            s.style.scrollMarginTop = "84px";
+          });
+        }, []);
+
+        return (
+          <>
+            <ScrollProgress />
+            <main className="bg-black text-white" id="main">
+              <window.Hero />
+              <window.Capabilities />
+              <window.TechStack />
+              <window.Work />
+              <window.Services />
+              <window.FAQ />
+              <window.Connect />
+            </main>
+          </>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
