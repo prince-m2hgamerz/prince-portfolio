@@ -1,0 +1,368 @@
+/* ============================================================
+ * main.css — Prince Kumar portfolio
+ * Liquid-glass design system + utilities
+ * ============================================================ */
+
+html, body { background: #000; color: #fff; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Barlow', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Subtle scrollbar so it doesn't break the dark glass aesthetic */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.16); }
+
+/* ───────── Liquid Glass — exact spec from design.md ───────── */
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: none;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0.15) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.15) 80%,
+    rgba(255, 255, 255, 0.45) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.liquid-glass-strong {
+  background: rgba(255, 255, 255, 0.01);
+  background-blend-mode: luminosity;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+  border: none;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+.liquid-glass-strong::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.4px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 255, 255, 0) 60%,
+    rgba(255, 255, 255, 0.2) 80%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Subtle ambient glow used for sections w/o video bg */
+.ambient-bg {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, rgba(167, 139, 250, 0.10), transparent 60%),
+    radial-gradient(900px 500px at 100% 100%, rgba(249, 115, 22, 0.06), transparent 60%),
+    #000;
+}
+
+/* Marquee for the partner / tech ribbon */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.marquee-track { animation: marquee 28s linear infinite; }
+.mask-fade {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 12%, #000 88%, transparent 100%);
+}
+
+/* Floating dot (status pill pulse) */
+@keyframes pulseDot { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+.pulse-dot { animation: pulseDot 1.6s ease-in-out infinite; }
+
+/* ───────── Liquid hover spotlight ─────────
+   A mouse-tracked radial highlight that lives inside any glass element. */
+.liquid-hover { position: relative; isolation: isolate; }
+.liquid-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    180px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.22),
+    rgba(255, 255, 255, 0.06) 35%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 220ms ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.liquid-hover:hover::after { opacity: 1; }
+.liquid-hover > * { position: relative; z-index: 1; }
+
+/* Tighter, larger spotlight for prominent CTAs / nav links */
+.liquid-hover-tight::after {
+  background: radial-gradient(
+    90px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.30),
+    rgba(255, 255, 255, 0.08) 40%,
+    transparent 70%
+  );
+}
+
+/* Soft entrance for big section headings */
+@keyframes floatY {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.float-slow { animation: floatY 6s ease-in-out infinite; }
+
+/* Reveal-on-scroll accent line */
+.accent-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+}
+
+/* Mobile menu animation */
+@keyframes menuIn {
+  from { opacity: 0; transform: translateY(-8px); filter: blur(8px); }
+  to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+.menu-in { animation: menuIn 320ms ease-out both; }
+
+/* ───────── Scroll reveal ───────── */
+.reveal { opacity: 0; transform: translateY(28px); filter: blur(8px);
+  transition: opacity 800ms cubic-bezier(.2,.7,.2,1),
+              transform 800ms cubic-bezier(.2,.7,.2,1),
+              filter 800ms cubic-bezier(.2,.7,.2,1); }
+.reveal.in-view { opacity: 1; transform: translateY(0); filter: blur(0); }
+.reveal-delay-1 { transition-delay: 80ms; }
+.reveal-delay-2 { transition-delay: 160ms; }
+.reveal-delay-3 { transition-delay: 240ms; }
+.reveal-delay-4 { transition-delay: 320ms; }
+.reveal-delay-5 { transition-delay: 400ms; }
+.reveal-delay-6 { transition-delay: 480ms; }
+
+/* ───────── Animated gradient border (hover) ─────────
+   Used for premium project cards. */
+.grad-border {
+  position: relative;
+  isolation: isolate;
+}
+.grad-border::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--ang, 0deg),
+    rgba(167,139,250,0) 0deg,
+    rgba(167,139,250,0.85) 90deg,
+    rgba(249,115,22,0.85) 180deg,
+    rgba(167,139,250,0.85) 270deg,
+    rgba(167,139,250,0) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 350ms ease;
+  pointer-events: none;
+  z-index: 2;
+}
+@property --ang { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes spinAng { to { --ang: 360deg; } }
+.grad-border:hover::after {
+  opacity: 1;
+  animation: spinAng 4s linear infinite;
+}
+
+/* ───────── Shimmer (for Hire-Me CTA) ───────── */
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-12deg); }
+  100% { transform: translateX(220%) skewX(-12deg); }
+}
+.shimmer-on-hover { position: relative; overflow: hidden; }
+.shimmer-on-hover::before {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; width: 40%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.55) 50%,
+    transparent 100%);
+  transform: translateX(-120%) skewX(-12deg);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 200ms ease;
+}
+.shimmer-on-hover:hover::before { opacity: 1; animation: shimmer 1.1s ease-out; }
+
+/* ───────── Aurora background (Connect section) ───────── */
+@keyframes auroraShift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(2%, -3%, 0) scale(1.06); }
+}
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.aurora::before, .aurora::after {
+  content: "";
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.45;
+  animation: auroraShift 14s ease-in-out infinite;
+}
+.aurora::before {
+  background: radial-gradient(closest-side, rgba(167,139,250,0.55), transparent 70%);
+  top: -10%;
+  left: -10%;
+}
+.aurora::after {
+  background: radial-gradient(closest-side, rgba(249,115,22,0.40), transparent 70%);
+  bottom: -10%;
+  right: -10%;
+  animation-delay: -7s;
+}
+
+/* ───────── Dotted texture for section accents ───────── */
+.dot-grid {
+  background-image:
+    radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* ───────── Tilt-on-hover ───────── */
+.tilt {
+  transform: perspective(800px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform 240ms ease;
+  will-change: transform;
+}
+
+/* ───────── KBD chip styling ───────── */
+kbd.kbd {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.85);
+}
+
+/* Selection */
+::selection { background: rgba(167,139,250,0.35); color: #fff; }
+
+/* Reduce hero typography squeeze on tiny screens */
+@media (max-width: 480px) {
+  .hero-headline { letter-spacing: -2px !important; }
+}
+
+/* Disable heavy hover effects on touch devices */
+@media (hover: none) {
+  .liquid-hover::after, .grad-border::after { display: none; }
+}
+
+/* ───────── Mobile-only refinements ───────── */
+/* Make all primary tap targets reach the 44px minimum */
+@media (max-width: 640px) {
+  .tap-44 { min-height: 44px; }
+}
+
+/* Horizontally scrollable rail (e.g., stack tabs) with no scrollbar */
+.h-scroll {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.h-scroll::-webkit-scrollbar { display: none; }
+.h-scroll-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+}
+
+/* Prevent oversized backdrop-filter on low-power phones */
+@media (max-width: 480px) {
+  .liquid-glass-strong {
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+  .aurora::before, .aurora::after { filter: blur(60px); opacity: 0.35; }
+}
+
+/* Headlines: tighten letter-spacing further on very narrow phones */
+@media (max-width: 380px) {
+  .hero-headline { letter-spacing: -1.5px !important; }
+}
+
+/* Long URLs / emails should never burst the card */
+.break-anywhere { overflow-wrap: anywhere; word-break: break-word; }
+
+/* Make sure the fixed navbar/scroll progress are always interactive
+   and never sit beneath sibling sections that use transform/filter. */
+.nav-fixed { z-index: 70 !important; pointer-events: auto !important; }
+.nav-fixed * { pointer-events: auto; }
+.progress-fixed { z-index: 71 !important; pointer-events: none !important; }
+
+/* Visually hidden but accessible to screen readers and crawlers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+/* Reveals an sr-only element when keyboard-focused (skip link) */
+.focus\:not-sr-only:focus {
+  position: fixed;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  outline: 2px solid rgba(167,139,250,0.8);
+  outline-offset: 2px;
+}
